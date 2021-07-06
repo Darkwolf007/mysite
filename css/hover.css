@@ -1,0 +1,14 @@
+body {width: 600px; height: 600px;margin: 100px auto;text-align: center}
+div {margin: 0 auto}
+
+single-item col-6 col-lg-4 {
+      filter: gray; 
+      -webkit-filter: grayscale(1); 
+      -webkit-transition: all .8s ease-in-out;  
+    }
+
+    single-item col-6 col-lg-4:hover {
+    filter: none;
+      -webkit-filter: grayscale(0);
+      -webkit-transform: scale(1.01);
+    }
