@@ -6,3 +6,11 @@
   * Version: v1.1.0
   * License: Themeforest Standard Licenses: https://themeforest.net/licenses
   */
+
+/* #home {
+    background-image: url(../img/yov1.gif);
+} */
+#home-bg {
+    position: absolute;
+    opacity: 0.5;
+}
