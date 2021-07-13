@@ -14,3 +14,7 @@
     position: absolute;
     opacity: 0.5;
 }
+
+.material-icons {
+    font-size: 40px;
+}
