@@ -13,8 +13,8 @@ function setup() {
 
     u = 100;
     l = 40;
-    var highCount = height / 80;
-    var wideCount = width / 80;
+    var highCount = height / 40;
+    var wideCount = width / 40;
     count = int(highCount * wideCount);
     var index = 0;
     for (var xc = 0; xc < wideCount; xc++) {
