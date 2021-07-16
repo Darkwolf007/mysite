@@ -1,5 +1,4 @@
-// created by Yonsan KIM
-// Insipred by vamoss and Felix Auer
+
 
 var blobs = [] //binary large objects
 var colors; //color
@@ -91,7 +90,7 @@ function draw() {
   // Create the interaction when the mouse is pressed
   if(mouseIsPressed){
     //for the number of particles to draw at once (i.e.20)
-       for(let i = 0; i < 50; i++){
+       for(let i = 0; i < 20; i++){
          let x = mouseX + random(-150, 150);
          let y = mouseY + random(-150, 150);
          // Create Variable blob (a point) with params
@@ -138,7 +137,7 @@ function draw() {
 
 
 
-  var stepSize = deltaTime * 0.005; // how long you will draw in each line (how wide in each step)
+  var stepSize = deltaTime * 0.002; // how long you will draw in each line (how wide in each step)
   //iterate blobs from backward e.g.20 -> 0 to 19
   var length = blobs.length;
   for(let i = length -1; i >= 0; i--){
@@ -159,7 +158,7 @@ function draw() {
     blob.lastY = y;
 
     // if the coordinate goes beyond the border, splices replaces 1 element at index i with nothing -> remove the blob
-    const border = 200;
+    const border = 100;
     if (x < -border  || y < -border || x > width+border || y > height+border)
       blobs.splice(i, 1);
 

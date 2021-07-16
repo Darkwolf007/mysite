@@ -852,7 +852,7 @@ hr {
 	font-size: 70px;
 	font-weight: 700;
 	letter-spacing: 1px;
-	margin-bottom: 34px
+	margin-left: 30px
 }
 
 .home-area .home-headline {
@@ -1510,6 +1510,9 @@ hr {
 	align-items: center;
 	display: -ms-flexbox;
 	display: flex;
+	width:100%;
+	height:200px;
+	object-fit:contain;
 	margin-bottom: 30px;
 	overflow: hidden;
 	position: relative
@@ -1530,13 +1533,14 @@ hr {
 }*/
 
 #portfolio .portfolio-section .portfolio-grid .portfolio-wrapper>.img-fluid {
-	width: 100%
+	width: 10%
     filter: gray; 
       -webkit-filter: grayscale(1); 
       -webkit-transition: all .2s ease-in-out; 
 }
 
 #portfolio .portfolio-section .portfolio-grid .portfolio-wrapper >.img-fluid:hover {
+width: 10%
 filter: none;
       -webkit-filter: grayscale(0);
       -webkit-transform: scale(1.05);
