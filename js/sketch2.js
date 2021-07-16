@@ -31,7 +31,10 @@ function setup() {
 
   noCursor();
 
-  colors = [color("#27187E"), color("#758BFD"), color("#AEB8FE"), color("#F1F2F6"), color("#FF8600")]
+  // colors = [color("#7700a6"), color("#fe00fe"), color("#defe47"), color("#00b3fe"), color("#0016ee")]
+  // colorCol.push(colors)
+
+   colors = [color("#27187E"), color("#758BFD"), color("#AEB8FE"), color("#F1F2F6"), color("#FF8600")]
   colorCol.push(colors)
 
   colors = [color("#ED6A5A"), color("#F4F1BB"), color("#9BC1BC"), color("#E6EBE0"), color("#36C9C6")]
@@ -118,7 +121,8 @@ function draw() {
   // fill(173, 170, 191, 10)
   // fill(49, 38, 62, 10)
   // fill(140, 15, 49, 10)
-  fill(20, 10, 27, 10)
+  // fill(20, 10, 27, 10)
+  fill(  8, 6, 0, 10)
   // fill(26, 41, 64,10)
   rect(0,0, width, height);
 
@@ -137,7 +141,7 @@ function draw() {
 
 
 
-  var stepSize = deltaTime * 0.002; // how long you will draw in each line (how wide in each step)
+  var stepSize = deltaTime * 0.005; // how long you will draw in each line (how wide in each step)
   //iterate blobs from backward e.g.20 -> 0 to 19
   var length = blobs.length;
   for(let i = length -1; i >= 0; i--){
