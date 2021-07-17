@@ -91,7 +91,7 @@ hr {
 }
 
 .element-cover-bg {
-	background-color: rgba(0, 0, 0, .85);
+	background-color: transparent !important;
 	background-position: 50% 0;
 	background-repeat: no-repeat;
 	background-size: cover;

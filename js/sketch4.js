@@ -1,13 +1,15 @@
 let objs = [];
 let objsNum = 360;
-const noiseScale = 0.01;
+const noiseScale = 0.005;
 let R;
 let maxR;
 let t = 0;
 let nt = 0;
 let nR = 0;
 let nTheta = 1000;
-const palette = ["#ACDEED55", "#EAD5E855", "#84C0E755", "#38439955"];
+// const palette = ["#ACDEED55", "#EAD5E855", "#84C0E755", "#38439955"];
+const palette = ["#E90047", "#00FFAA", "#003BFE", "#B2D400", "#FF8D00"];
+
 
 function setup() {
   const canvas = createCanvas(windowWidth, windowHeight);
@@ -17,7 +19,7 @@ function setup() {
 
   maxR = max(width, height) * 0.45;
 
-  background("#F5F4FD");
+  background(0);
 }
 
 function draw() {
@@ -58,7 +60,7 @@ class Obj {
     this.t = random(0, noiseScale);
     this.lifeMax = random(20, 50);
     this.life = this.lifeMax;
-    this.step = random(0.1, 0.5);
+    this.step = random(0.1, 0.1);
     this.dMax = random(10) >= 5 ? 10 : 30;
     this.d = this.dMax;
     this.c = color(random(palette));
