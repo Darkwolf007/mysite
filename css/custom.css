@@ -12,9 +12,19 @@
 } */
 #home-bg {
     position: absolute;
-    opacity: 0.5;
+    opacity: 1;
 }
 
 .material-icons {
     font-size: 40px;
+}
+
+#text-poppy {
+  color: #FFFFFF;
+  background: rgba(0, 0,0);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 5px;
+  margin-left: width/2;
+  padding: 2px;
 }

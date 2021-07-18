@@ -7,8 +7,12 @@ let t = 0;
 let nt = 0;
 let nR = 0;
 let nTheta = 1000;
+let canv;
 // const palette = ["#ACDEED55", "#EAD5E855", "#84C0E755", "#38439955"];
-const palette = ["#E90047", "#00FFAA", "#003BFE", "#B2D400", "#FF8D00"];
+// const palette = ["#E90047", "#00FFAA", "#003BFE", "#fff717", "#FF8D00"];
+// const palette = ["#FF36B9", "#FF4B24", "#FD2E24", "#FF6F02", "#FFD801"];
+// const palette = ["#6696BA", "#E2E38B", "#E7A553", "#7E4B68", "#292965"];
+const palette = ["#280F36","#174EA6", "#292965", "#CE751D", "#E7A553"];
 
 
 function setup() {
@@ -97,4 +101,15 @@ function func(t, num) {
   let B = cos(a - b / num);
 
   return A / B;
+}
+
+function keyReleased(){
+  if (key == "r"){
+    saveCanvas(canv, 'myCanvas', 'png');
+  }
+
+    if (key == "c"){
+    colVariation++;
+    colVariation = colVariation % (colorCol.length);
+  }
 }
