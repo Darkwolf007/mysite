@@ -1555,7 +1555,7 @@ filter: none;
 }
  
 #portfolio .portfolio-section .portfolio-grid .portfolio-wrapper>.img-fluid {
-	width: 100%
+	width: 200%
 
 }
 
@@ -1599,6 +1599,7 @@ filter: none;
 	opacity: 1;
 	visibility: visible
 }
+
 
 @media (max-width:767.98px) {
 	#portfolio .portfolio-section .filter-control>li {
