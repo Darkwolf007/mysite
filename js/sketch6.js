@@ -16,7 +16,7 @@ function setup() {
     // noStroke();
     // text('train', 100, 200);
 
-    var points = font.textToPoints('Shylesh Kumar',  windowWidth/7,windowHeight/2,200);
+    var points = font.textToPoints('Nivi papa',  windowWidth/7,windowHeight/2,200);
     
     for (var i = 0; i < points.length; i++) {
         var pt = points[i];
