@@ -673,7 +673,20 @@
 
 
   <!-- Scripts-->
-  <script>w3.includeHTML();</script>
+  <script>w3.includeHTML();
+    $(document).ready(function(){
+        $(".filter-link").click(function() {
+            let value = $(this).attr('data-filter');
+            if(value == "all" || value == "*") $('.filter-item').show();
+            else {
+                $(".filter-item").not('.'+value).hide();
+                $('.filter-item').filter('.'+value).show();
+            }
+            $(this).addClass('tab-active')
+            $(".filter-link").removeClass('tab-active');
+        });
+    });
+</script>
   <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
     crossorigin="anonymous"></script> -->
