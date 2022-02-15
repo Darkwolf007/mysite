@@ -682,8 +682,8 @@
                 $(".filter-item").not('.'+value).hide();
                 $('.filter-item').filter('.'+value).show();
             }
-            $(this).addClass('tab-active')
             $(".filter-link").removeClass('tab-active');
+            $(this).addClass('tab-active');
         });
     });
 </script>
