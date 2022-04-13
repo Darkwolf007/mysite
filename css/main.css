@@ -1336,6 +1336,9 @@ hr {
 #resume .resume-section .resume-item .item-details {
 	display: inline-block;
 	margin-bottom: 7px
+	color: #f0f0f0;
+	font-size: 16px;
+
 }
 
 #resume .resume-section .resume-item .item-description {
