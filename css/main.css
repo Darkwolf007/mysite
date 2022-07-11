@@ -1546,14 +1546,14 @@ hr {
 	z-index: 1
 }*/
 
-#portfolio .portfolio-section .portfolio-grid .portfolio-wrapper>.img-fluid {
-	width: 10%
-    filter: gray; 
-      -webkit-filter: grayscale(1); 
-      -webkit-transition: all .2s ease-in-out; 
+#portfolio .portfolio-section .portfolio-grid .portfolio-wrapper .img-fluid {
+width: 10%
+filter: gray; 
+-webkit-filter: grayscale(1); 
+-webkit-transition: all .2s ease-in-out; 
 }
 
-#portfolio .portfolio-section .portfolio-grid .portfolio-wrapper >.img-fluid:hover {
+#portfolio .portfolio-section .portfolio-grid .portfolio-wrapper:hover .img-fluid {
 width: 10%
 filter: none;
       -webkit-filter: grayscale(0);
@@ -1562,6 +1562,7 @@ filter: none;
  
 #portfolio .portfolio-section .portfolio-grid .portfolio-wrapper>.img-fluid {
 	width: 200%
+	height: 200%
 
 }
 
@@ -1571,7 +1572,7 @@ filter: none;
 	padding: 3px 18px;
 	position: absolute;
 	text-align: center;
-	transition: all .15s ease-in-out;
+	transition: all .2s ease-in-out;
 	visibility: hidden;
 	width: 100%;
 	z-index: 2
@@ -1596,11 +1597,11 @@ filter: none;
 	font-weight: 1
 }
 
-#portfolio .portfolio-section .portfolio-grid .portfolio-wrapper:hover:before {
+/*#portfolio .portfolio-section .portfolio-grid .portfolio-wrapper:hover:before {
 	opacity: 1;
 	visibility: visible
 }
-
+*/
 #portfolio .portfolio-section .portfolio-grid .portfolio-wrapper:hover .item-content {
 	opacity: 1;
 	visibility: visible
