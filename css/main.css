@@ -1559,6 +1559,31 @@ filter: none;
       -webkit-filter: grayscale(0);
       -webkit-transform: scale(1.05);
 }
+
+#portfolio .portfolio-section .portfolio-grid .portfolio-wrapper .video-static {
+width: 10%
+position:absolute;
+display: inline-block;
+background: white;
+filter: gray; 
+-webkit-filter: grayscale(1); 
+-webkit-transition: all .2s ease-in-out; 
+}
+
+#portfolio .portfolio-section .portfolio-grid .portfolio-wrapper .video-play {
+width: 10%
+display: none;
+position: absolute;
+filter: none;
+      -webkit-filter: opacity(0);
+}
+
+#portfolio .portfolio-section .portfolio-grid .portfolio-wrapper:hover .video-play {
+width: 10%
+position:absolute;	
+filter: none;
+      -webkit-transform: scale(1.05);
+}
  
 #portfolio .portfolio-section .portfolio-grid .portfolio-wrapper>.img-fluid {
 	width: 200%
