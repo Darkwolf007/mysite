@@ -12,6 +12,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
   <!-- background-->
   <link rel="stylesheet" type="text/css" href="css/bgmouse.css">
+  <script src="https://code.highcharts.com/highcharts.js"></script>
+  <script src="https://code.highcharts.com/modules/networkgraph.js"></script>
+  <script src="https://code.highcharts.com/modules/accessibility.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"
     integrity="sha512-N4kV7GkNv7QR7RX9YF/olywyIgIwNvfEe2nZtfyj73HdjCUkAfOBDbcuJ/cTaN04JKRnw1YG1wnUyNKMsNgg3g=="
     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -19,6 +22,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/addons/p5.sound.min.js"></script>
   <script src="js/bgmouse.js"></script>
   <script src="js/jquery.min.js"></script>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
     crossorigin="anonymous"></script>
@@ -29,7 +33,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="img/favicons/favicon-16x16.png">
   <!-- Web fonts-->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
   <!--  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"> -->
   <!-- CSS vendors-->
   <!-- <link rel="stylesheet" href="css/bootstrap-custom.css"> -->
@@ -192,7 +196,7 @@
               <div class="row">
                 <div class="col-12">
                   <div class="section-heading">
-                    <p class="section-description">Services i offer to my clients</p>
+                    <p class="section-description"></p>
                     <h2 class="section-title">My Interests</h2>
                   </div>
                 </div>
@@ -333,56 +337,11 @@
                     <p class="section-description">My level of knowledge in some tools</p>
                     <h2 class="section-title">My Skills</h2>
                   </div>
+                <div id="graphskill"></div>
+                <script src="js/graph.js"></script>
                 </div>
               </div>
-              <div class="row">
-                <div class="col-12 col-md-6">
-                  <div class="single-skill" data-percentage="80">
-                    <div class="skill-info"><span class="skill-name">Rhinoceros</span><span
-                        class="skill-percentage"></span></div>
-                    <div class="progress skill-progress">
-                      <!-- <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div> -->
-                    </div>
-                  </div>
-                  <div class="single-skill" data-percentage="95">
-                    <div class="skill-info"><span class="skill-name">Grasshopper</span><span
-                        class="skill-percentage"></span></div>
-                    <div class="progress skill-progress">
-                      <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
-                  <div class="single-skill" data-percentage="75">
-                    <div class="skill-info"><span class="skill-name">Blender</span><span
-                        class="skill-percentage"></span></div>
-                    <div class="progress skill-progress">
-                      <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 col-md-6">
-                  <div class="single-skill" data-percentage="70">
-                    <div class="skill-info"><span class="skill-name">Autocad</span><span
-                        class="skill-percentage"></span></div>
-                    <div class="progress skill-progress">
-                      <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
-                  <div class="single-skill" data-percentage="75">
-                    <div class="skill-info"><span class="skill-name">Lumion</span><span class="skill-percentage"></span>
-                    </div>
-                    <div class="progress skill-progress">
-                      <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
-                  <div class="single-skill" data-percentage="80">
-                    <div class="skill-info"><span class="skill-name">Adobe Creative cloud</span><span
-                        class="skill-percentage"></span></div>
-                    <div class="progress skill-progress">
-                      <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            
             </div>
             <!-- Video section-->
             <!-- <div class="video-section single-section">
@@ -686,7 +645,7 @@
             $(this).addClass('tab-active');
         });
     });
-</script>
+  </script>
   <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
     crossorigin="anonymous"></script> -->

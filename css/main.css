@@ -70,17 +70,17 @@ hr {
 }
 
 .button-main {
-	background-color: #fff;
-	border: 1px solid #fff;
-	border-radius: 30px;
-	color: #222;
+	background-color: #101010;
+	border: 1px solid #101010;
+	border-radius: 0px;
+	color: #101010;
 	font-size: 14px;
 	padding: 10px 35px
 }
 
 .button-main:focus {
-	background-color: #bfbfbf;
-	border: 1px solid #fff;
+	background-color: #101010;
+	border: 1px ;
 	box-shadow: none
 }
 
@@ -529,15 +529,15 @@ hr {
 	background-color: #fff;
 	content: '';
 	display: block;
-	height: 4px;
+	height: 2px;
 	left: 0;
 	margin: 0 auto 0 auto;
 	position: relative;
 	right: 0;
-	width: 75px
+	width: width
 }
 
-.lightbox-wrapper .lightbox-content .section-heading.page-heading>.animated-bar:after,
+/*.lightbox-wrapper .lightbox-content .section-heading.page-heading>.animated-bar:after,
 .lightbox-wrapper .lightbox-content .section-heading.page-heading>.animated-bar:before {
 	-webkit-animation-duration: 3s;
 	-webkit-animation-iteration-count: infinite;
@@ -584,7 +584,7 @@ hr {
 		transform: translateX(75px)
 	}
 }
-
+*/
 .lightbox-wrapper .lightbox-content .section-heading>.section-description {
 	font-size: 15px;
 	margin-bottom: 17px
@@ -1120,7 +1120,7 @@ hr {
 #about .services-section .single-service {
 	background-color: #161616;
 	border-bottom: 2px solid transparent;
-	box-shadow: 0 6px 16px rgba(0, 0, 0, .2);
+/*	box-shadow: 0 6px 16px rgba(0, 0, 0, .2);*/
 	margin-bottom: 30px;
 	padding: 38px 42px;
 	transition: all .15s ease-in-out
@@ -1364,11 +1364,15 @@ hr {
 	}
 }
 
-#resume .skills-section .single-skill:not(:last-child) {
-	margin-bottom: 42px
+#graphskill {
+	  min-width: 320px;
+	  max-width: width;
+	  margin: 0;
+	  height: 500px;
+	  fill: #101010;
 }
 
-#resume .skills-section .single-skill .skill-info {
+/*#resume .skills-section .single-skill .skill-info {
 	-ms-flex-pack: justify;
 	color: #cecece;
 	display: -ms-flexbox;
@@ -1382,9 +1386,9 @@ hr {
 	display: inline-block;
 	margin-right: 12px;
 	white-space: nowrap
-}
+}*/
 
-#resume .skills-section .single-skill .skill-progress {
+/*#resume .skills-section .single-skill .skill-progress {
 	background-color: #2f2f2f;
 	border-radius: 1px;
 	font-size: 15px;
@@ -1404,7 +1408,7 @@ hr {
 	#resume .skills-section [class*=col-]:not(:last-child) .single-skill {
 		margin-bottom: 40px!important
 	}
-}
+}*/
 
 #resume .video-section .content-part .video-title {
 	font-size: 31px;
