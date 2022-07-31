@@ -5,14 +5,22 @@ var dirDist50 = "#c93e70",
   dirDist54 = "#CE751D",
   dirDist55 = "#E7A553",
 
-  dirDist10 = "#0a0a0a",
+  dirDist10 = "#c46e8d",
+  dirDist11 = "#795c8a",
+  dirDist12 = "#7397d1",
+  dirDist13 = "#4d4d63",
+  dirDist14 = "#eba057",
+  dirDist15 = "#857766",
   dirDistLess10 = "#2AA775";
+
+
 
 Highcharts.chart("graphskill", {
   chart: {
     type: "networkgraph",
     marginTop: 10,
     backgroundColor: '#101010',
+    
   },
 
   title: {
@@ -44,9 +52,10 @@ Highcharts.chart("graphskill", {
     networkgraph: {
       keys: ["from", "to"],
       layoutAlgorithm: {
-        enableSimulation: false,
+        enableSimulation: true,
         integration: "verlet",
-        linkLength: 150
+        linkLength: 150,
+        gravitationalConstant: 1
       }
     }
   },
@@ -54,7 +63,8 @@ Highcharts.chart("graphskill", {
   series: [
     {
       marker: {
-        radius: 13
+        radius: 13,
+        enabled: true
       },
       dataLabels: {
         enabled: true,
@@ -62,6 +72,7 @@ Highcharts.chart("graphskill", {
         allowOverlap: true,
         color: '#ffffff',
         align: 'center',
+        y: 10,
 
         style: {
           // fontWeight: 'bold',
@@ -267,217 +278,210 @@ Highcharts.chart("graphskill", {
           marker: {
             radius: 20
           },
-          color: dirDist10
+          color: dirDist11
         },
         {
           id: "ReCap",
           marker: {
             radius: 20
           },
-          color: dirDist10
+          color: dirDist11
         },
         {
           id: "RealityCapture",
           marker: {
             radius: 20
           },
-          color: dirDist10
+          color: dirDist11
         },
         {
           id: "Unity3D",
           marker: {
             radius: 20
           },
-          color: dirDist10
+          color: dirDist12
         },  
         {
           id: "Armoury3D",
           marker: {
             radius: 20
           },
-          color: dirDist10
+          color: dirDist12
         },
                 {
           id: "Unreal",
           marker: {
             radius: 20
           },
-          color: dirDist10
+          color: dirDist12
         },
         {
           id: "Houdini",
           marker: {
             radius: 20
           },
-          color: dirDist10
+          color: dirDist13
         },
         {
           id: "3dsMax",
           marker: {
             radius: 20
           },
-          color: dirDist10
+          color: dirDist13
         },
         {
           id: "Adobe_creativesuite",
           marker: {
             radius: 20
           },
-          color: dirDist10
+          color: dirDist13
         },  
         {
           id: "Lumion",
           marker: {
             radius: 20
           },
-          color: dirDist10
+          color: dirDist13
         },
                 {
           id: "Octane",
           marker: {
             radius: 20
           },
-          color: dirDist10
+          color: dirDist13
         },
         {
           id: "Vray",
           marker: {
             radius: 20
           },
-          color: dirDist10
+          color: dirDist13
         },
         {
           id: "Omniverse",
           marker: {
             radius: 20
           },
-          color: dirDist10
+          color: dirDist13
         },
         {
           id: "TouchDesigner",
           marker: {
             radius: 20
           },
-          color: dirDist10
+          color: dirDist13
         },  
         {
           id: "VVVV",
           marker: {
             radius: 20
           },
-          color: dirDist10
+          color: dirDist13
         },
                 {
           id: "ProcessingJS",
           marker: {
             radius: 20
           },
-          color: dirDist10
+          color: dirDist13
         },
         {
           id: "P5js",
           marker: {
             radius: 20
           },
-          color: dirDist10
+          color: dirDist13
         },
         {
           id: "Python",
           marker: {
             radius: 20
           },
-          color: dirDist10
+          color: dirDist14
         },
         {
           id: "HTML/CSS",
           marker: {
             radius: 20
           },
-          color: dirDist10
+          color: dirDist14
         },  
         {
           id: "C#(Grasshopper API)",
           marker: {
             radius: 20
           },
-          color: dirDist10
+          color: dirDist14
         },
                 {
           id: "ThreeJS",
           marker: {
             radius: 20
           },
-          color: dirDist10
+          color: dirDist14
         },
         {
           id: "WebGL",
           marker: {
             radius: 20
           },
-          color: dirDist10
+          color: dirDist14
         },
         {
           id: "Ecotect",
           marker: {
             radius: 20
           },
-          color: dirDist10
+          color: dirDist12
         },
         {
           id: "ROS_gazebo",
           marker: {
             radius: 20
           },
-          color: dirDist10
+          color: dirDist12
         },  
         {
           id: "DesignBuilder",
           marker: {
             radius: 20
           },
-          color: dirDist10
+          color: dirDist12
         },
         {
           id: "CAM/CNC",
           marker: {
             radius: 20
           },
-          color: dirDist10
+          color: dirDist11
         },  
         {
           id: "3D printing",
           marker: {
             radius: 20
           },
-          color: dirDist10
+          color: dirDist11  
         },
         {
           id: "VR/AR",
           marker: {
             radius: 20
           },
-          color: dirDist10
+          color: dirDist11
         },  
         {
           id: "Gcode",
           marker: {
             radius: 20
           },
-          color: dirDist10
-        },
-        {
-          id: "CAM/CNC",
-          marker: {
-            radius: 20
-          },
-          color: dirDist10
-        },  
+          color: dirDist11
+        }, 
         {
           id: "ExtendedReality",
           marker: {
             radius: 20
           },
-          color: dirDist10
+          color: dirDist11
         },
         {
           id: "Photogrammetry",
