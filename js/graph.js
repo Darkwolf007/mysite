@@ -58,7 +58,7 @@ Highcharts.chart("graphskill", {
       },
       dataLabels: {
         enabled: true,
-        linkFormat: "hello",
+        linkFormat: "",
         allowOverlap: true,
         color: '#ffffff',
         align: 'center',
