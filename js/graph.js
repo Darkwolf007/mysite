@@ -44,7 +44,7 @@ Highcharts.chart("graphskill", {
     networkgraph: {
       keys: ["from", "to"],
       layoutAlgorithm: {
-        enableSimulation: true,
+        enableSimulation: false,
         integration: "verlet",
         linkLength: 150
       }
