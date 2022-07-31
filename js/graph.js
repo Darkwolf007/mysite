@@ -20,7 +20,21 @@ Highcharts.chart("graphskill", {
     type: "networkgraph",
     marginTop: 10,
     backgroundColor: '#101010',
-    
+    events: {
+      load() {
+        this.series[0].points.forEach(p => {
+          p.graphic.hide();
+          p.toNode.graphic.css({
+            opacity: 0
+          });
+          p.toNode.isHidden = true;
+          p.toNode.dataLabel.css({
+            opacity: 0
+          })
+        })
+      }
+    }    
+
   },
 
   title: {
@@ -50,12 +64,13 @@ Highcharts.chart("graphskill", {
 
   plotOptions: {
     networkgraph: {
+      inactiveOtherPoints: false,
       keys: ["from", "to"],
       layoutAlgorithm: {
         enableSimulation: true,
         integration: "verlet",
-        linkLength: 150,
-        gravitationalConstant: 1
+        linkLength: 200,
+        gravitationalConstant: 10
       }
     }
   },
@@ -66,6 +81,36 @@ Highcharts.chart("graphskill", {
         radius: 13,
         enabled: true
       },
+
+  point: {
+      events: {
+        click: function() {
+          var point = this;
+          point.linksFrom.forEach(link => {
+            if (link.toNode.isHidden) {
+              link.graphic.show();
+              link.toNode.graphic.css({
+                opacity: 1
+              });
+              link.toNode.dataLabel.css({
+                opacity: 1
+              })
+              link.toNode.isHidden = false;
+            } else {
+              link.graphic.hide();
+              link.toNode.graphic.css({
+                opacity: 0
+              });
+              link.toNode.dataLabel.css({
+                opacity: 0
+              })
+              link.toNode.isHidden = true;
+            }
+          })
+        }
+      }
+    },
+
       dataLabels: {
         enabled: true,
         linkFormat: "",
@@ -150,88 +195,83 @@ Highcharts.chart("graphskill", {
         ["Data Capture", "LiDAR"],
         ["Data Capture", "IOT"], 
         ["Data Capture", "Arduino/RaspberryPi"], 
-        
+        ],
 
-
-
-
-
-      ],
       nodes: [
         {
           id: "Modelling",
           marker: {
-            radius: 30
+            radius: 40
           },
           color: dirDist50
         },
         {
           id: "BIM and Point cloud ",
           marker: {
-            radius: 30
+            radius: 40
           },
           color: dirDist51
         },
         {
           id: "GameDev",
           marker: {
-            radius: 30
+            radius: 40
           },
           color: dirDist52
         },
         {
           id: "Animation VFX",
           marker: {
-            radius: 30
+            radius: 40
           },
           color: dirDist53
         },
         {
           id: "Visualization",
           marker: {
-            radius: 30
+            radius: 40
           },
           color: dirDist54
         },
         {
           id: "Visual Scripting",
           marker: {
-            radius: 30
+            radius: 40
           },
           color: dirDist55
         },
         {
           id: "Coding",
           marker: {
-            radius: 30
+            radius: 40
           },
           color: dirDist54
         },
         {
           id: "Creative coding",
           marker: {
-            radius: 30
+            radius: 40
           },
           color: dirDist53
         },
         {
           id: "Simulation/Analysis",
           marker: {
-            radius: 30
+            radius: 40
           },
           color: dirDist52
         },
         {
           id: "Fabrication",
           marker: {
-            radius: 30
+            radius: 40
           },
           color: dirDist51
         },
         {
           id: "Data Capture",
           marker: {
-            radius: 30
+            radius: 40
           },
           color: dirDist50
         },
