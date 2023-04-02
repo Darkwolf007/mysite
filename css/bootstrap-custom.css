@@ -447,10 +447,10 @@ pre code{
 .row{
     -ms-flex-wrap:wrap;
     display:-ms-flexbox;
-    display:flex;
+    display:none;
     flex-wrap:wrap;
-    margin-left:-15px;
-    margin-right:-15px
+    margin:15px;
+    
 }
 .no-gutters{
     margin-left:0;
@@ -836,6 +836,9 @@ pre code{
         -ms-flex:0 0 33.33333%;
         flex:0 0 33.33333%;
         max-width:33.33333%
+        margin: 15px; 
+        width: 100%; 
+        height: 100%;
     }
     .col-md-5{
         -ms-flex:0 0 41.66667%;
@@ -4783,6 +4786,8 @@ a.close.disabled{
 }
 .modal-body{
     -ms-flex:1 1 auto;
+    height: 100%;
+    overflow: auto;
     flex:1 1 auto;
     padding:1rem;
     position:relative
