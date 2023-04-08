@@ -23,6 +23,8 @@ body {
 	position: relative
 }
 
+
+
 i.icon {
 	line-height: 100%
 }
@@ -1398,6 +1400,10 @@ a {
 	position: relative
 }
 
+#resume .resume-section .resume-item:hover {
+	background-color: #2c2c2c;
+}
+
 #resume .resume-section .resume-item:not(:last-child) {
 	border-bottom: 1px solid #313131
 }
@@ -1433,6 +1439,20 @@ a {
 #resume .resume-section .resume-item .item-title {
 	line-height: 100%;
 	margin-bottom: 9px
+	cursor: pointer;
+}
+
+
+
+#resume .resume-section .resume-item .item-arrow::before {
+	content: '\002B';
+	color: #555;
+	display: inline-block;
+	margin-right: 6px;
+}
+
+#resume .resume-section .resume-item .item-arrow.open::before {
+	content: '\2212';
 }
 
 #resume .resume-section .resume-item .item-details {
@@ -1444,6 +1464,7 @@ a {
 }
 
 #resume .resume-section .resume-item .item-description {
+	margin-top:10px;
 	margin-bottom: 0
 }
 

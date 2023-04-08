@@ -1,0 +1,29 @@
+/* Define a custom cursor */
+.custom-cursor {
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	border: 2px solid #fff;
+	position: absolute;
+	z-index: 999;
+	pointer-events: none;
+	transition: all 0.2s ease-in-out;
+	transform: translate(-50%, -50%);
+	opacity: 0;
+  }
+  
+  /* Enlarge the cursor on hover */
+  .custom-cursor:hover {
+	width: 40px;
+	height: 40px;
+	border-width: 3px;
+  }
+  
+  /* Apply the custom cursor to the element */
+  .nav-item {
+	position: relative;
+  }
+  
+  .nav-item:hover .custom-cursor {
+	opacity: 1;
+  }
