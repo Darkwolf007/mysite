@@ -5,119 +5,54 @@ var dirDist50 = "#c93e70",
   dirDist54 = "#CE751D",
   dirDist55 = "#E7A553",
 
-  dirDist10 = "#c46e8d",
-  dirDist11 = "#795c8a",
-  dirDist12 = "#7397d1",
-  dirDist13 = "#4d4d63",
-  dirDist14 = "#eba057",
-  dirDist15 = "#857766",
-  dirDistLess10 = "#2AA775";
-
-
+  dirDist10 = "#2a2a2a",
+  dirDistLess10 = "#a2a2a2";
 
 Highcharts.chart("graphskill", {
   chart: {
     type: "networkgraph",
     marginTop: 10,
     backgroundColor: '#101010',
-    events: {
-      load() {
-        this.series[0].points.forEach(p => {
-          p.graphic.hide();
-          p.toNode.graphic.css({
-            opacity: 0
-          });
-          p.toNode.isHidden = true;
-          p.toNode.dataLabel.css({
-            opacity: 0
-          })
-        })
-      }
-    }    
-
   },
 
   title: {
     text: ""
   },
 
-  // tooltip: {
-  //   formatter: function () {
-  //     var info = "";
-  //     switch (this.color) {
-  //       case dirDist50:
-  //         console.log(dirDist50);
-  //         info = "is an aiport <b>more than 50</b> direct distinations";
-  //         break;
-  //       case dirDist10:
-  //         console.log(dirDist10);
-  //         info = "is an aiport <b>more than 10</b> direct distinations";
-  //         break;
-  //       case dirDistLess10:
-  //         console.log(dirDistLess10);
-  //         info = "is an aiport <b>less than 10</b> direct distinations";
-  //         break;
-  //     }
-  //     return "<b>" + this.key + "</b>: " + info;
-  //   }
-  // },
-
   plotOptions: {
     networkgraph: {
-      inactiveOtherPoints: false,
       keys: ["from", "to"],
       layoutAlgorithm: {
         enableSimulation: true,
-        integration: "verlet",
-        linkLength: 200,
-        gravitationalConstant: 10
+        initialPositions: 'random',
+
+        integration: 'verlet',
+        // Half of the repulsive force
+        gravitationalConstant: 10,
+        linkLength: 150
       }
     }
+  },
+
+  tooltip: {
+    enabled: false,
+  },
+
+  credits: {
+    enabled: false,
   },
 
   series: [
     {
       marker: {
-        radius: 13,
-        enabled: true
+        radius: 13
       },
-
-  point: {
-      events: {
-        click: function() {
-          var point = this;
-          point.linksFrom.forEach(link => {
-            if (link.toNode.isHidden) {
-              link.graphic.show();
-              link.toNode.graphic.css({
-                opacity: 1
-              });
-              link.toNode.dataLabel.css({
-                opacity: 1
-              })
-              link.toNode.isHidden = false;
-            } else {
-              link.graphic.hide();
-              link.toNode.graphic.css({
-                opacity: 0
-              });
-              link.toNode.dataLabel.css({
-                opacity: 0
-              })
-              link.toNode.isHidden = true;
-            }
-          })
-        }
-      }
-    },
-
       dataLabels: {
         enabled: true,
         linkFormat: "",
         allowOverlap: true,
         color: '#ffffff',
         align: 'center',
-        y: 10,
 
         style: {
           // fontWeight: 'bold',
@@ -125,17 +60,36 @@ Highcharts.chart("graphskill", {
           textColor: '#000000',
         }
       },
+      
+      legend: {
+        layout: 'vertical',
+        align: 'right',
+        verticalAlign: 'top',
+        x: -10,
+        y: 100,
+        borderWidth: 0
+      },
       data: [
         ["Modelling", "Rhino3D"],
         ["Modelling", "Grasshopper3D"],
         ["Modelling", "Blender3D"],
         ["Modelling", "Zbrush"],
         ["Modelling", "Sketchup"],
+        ["Modelling", "nTopology"],
+        ["Modelling", "CloudCompare"],
 
-        ["BIM and Point cloud ", "ArchiCad"],
-        ["BIM and Point cloud ", "ReCap"],
-        ["BIM and Point cloud ", "RealityCapture"],
-        ["BIM and Point cloud ", "Blender3D"],
+        ["Point cloud ", "Recap"],
+        ["Point cloud ", "RealityCapture"],
+        ["Point cloud ", "CloudCompare"],
+        ["Point cloud ", "MeshLab"],
+
+        ["Interoperability",  "ArchiCad"],
+        ["Interoperability",  "Revit"],
+        ["Interoperability", "Blender3D"],
+        ["Interoperability", "QGis"],
+        ["Interoperability", "Rhino.inside"],
+        ["Interoperability", "Speckle"],
+        ["Interoperability", "IFCjs"],
 
         ["Animation VFX", "Houdini"],
         ["Animation VFX", "Blender3D"],       
@@ -195,368 +149,508 @@ Highcharts.chart("graphskill", {
         ["Data Capture", "LiDAR"],
         ["Data Capture", "IOT"], 
         ["Data Capture", "Arduino/RaspberryPi"], 
-        ],
+        
 
+
+
+
+
+      ],
       nodes: [
         {
           id: "Modelling",
           marker: {
-            radius: 40
+            radius: 30
           },
           color: dirDist50
+          
         },
         {
-          id: "BIM and Point cloud ",
+          id: "Point cloud ",
           marker: {
-            radius: 40
+            radius: 30
+          },
+          color: dirDist51
+        },
+
+        {
+          id: "Interoperability",
+          marker: {
+            radius: 30
           },
           color: dirDist51
         },
         {
           id: "GameDev",
           marker: {
-            radius: 40
+            radius: 30
           },
           color: dirDist52
         },
         {
           id: "Animation VFX",
           marker: {
-            radius: 40
+            radius: 30
           },
           color: dirDist53
         },
         {
           id: "Visualization",
           marker: {
-            radius: 40
+            radius: 30
           },
           color: dirDist54
         },
         {
           id: "Visual Scripting",
           marker: {
-            radius: 40
+            radius: 30
           },
           color: dirDist55
         },
         {
           id: "Coding",
           marker: {
-            radius: 40
+            radius: 30
           },
           color: dirDist54
         },
         {
           id: "Creative coding",
           marker: {
-            radius: 40
+            radius: 30
           },
           color: dirDist53
         },
         {
           id: "Simulation/Analysis",
           marker: {
-            radius: 40
+            radius: 30
           },
           color: dirDist52
         },
         {
           id: "Fabrication",
           marker: {
-            radius: 40
+            radius: 30
           },
           color: dirDist51
         },
         {
           id: "Data Capture",
           marker: {
-            radius: 40
+            radius: 30
           },
           color: dirDist50
         },
         
         
-//----------------       
+//----------------    
+
+// ["Point cloud ", "Recap"],
+// ["Point cloud ", "RealityCapture"],
+// ["Point cloud ", "CloudCompare"],
+// ["Point cloud ", "MeshLab"],
+
+// ["Interpoblity", "ArchiCad"],
+// ["Interpoblity", "Revit"],
+// ["Interpoblity ", "Blender3D"],
+// ["Interpoblity ", "QGis"],
+// ["Interpoblity ", "Rhino.inside"],
+// ["Interpoblity ", "Speckle"],
+// ["Interpoblity ", "IFCjs"],
+        {
+          id: "Speckle",
+          marker: {
+            radius: 20
+          },
+          color: dirDist10,
+          dataLabels: {style: {fontSize: '10px'}}
+        },  
+        {
+          id: "Recap",
+          marker: {
+            radius: 20
+          },
+          color: dirDist10,
+          dataLabels: {style: {fontSize: '10px'}}
+        },  
+        {
+          id: "QGis",
+          marker: {
+            radius: 20
+          },
+          color: dirDist10,
+          dataLabels: {style: {fontSize: '10px'}}
+        },  
+        {
+          id: "IFCjs",
+          marker: {
+            radius: 20
+          },
+          color: dirDist10,
+          dataLabels: {style: {fontSize: '10px'}}
+        }, 
+        {
+          id: "Rhino.inside",
+          marker: {
+            radius: 20
+          },
+          color: dirDist10,
+          dataLabels: {style: {fontSize: '10px'}}
+        }, 
+        {
+          id: "CloudCompare",
+          marker: {
+            radius: 20
+          },
+          color: dirDist10,
+          dataLabels: {style: {fontSize: '10px'}}
+        }, 
+        {
+          id: "MeshLab",
+          marker: {
+            radius: 20
+          },
+          color: dirDist10,
+          dataLabels: {style: {fontSize: '10px'}}
+        }, 
+        {
+          id: "Revit",
+          marker: {
+            radius: 20
+          },
+          color: dirDist10,
+          dataLabels: {style: {fontSize: '10px'}}
+        },  
+        {
+          id: "nTopology",
+          marker: {
+            radius: 20
+          },
+          color: dirDist10,
+          dataLabels: {style: {fontSize: '10px'}}
+        },
         {
           id: "Rhino3D",
           marker: {
             radius: 20
           },
-          color: dirDist10
+          color: dirDist10,
+          dataLabels: {style: {fontSize: '10px'}}
         },
         {
           id: "Grasshopper3D",
           marker: {
             radius: 20
           },
-          color: dirDist10
+          
+          color: dirDist10,
+          dataLabels: {style: {fontSize: '10px'}}
         },
         {
           id: "Blender3D",
           marker: {
             radius: 20
           },
-          color: dirDist10
+          color: dirDist10,
+          dataLabels: {style: {fontSize: '10px'}}
         },
         {
           id: "Zbrush",
           marker: {
             radius: 20
           },
-          color: dirDist10
+          color: dirDist10,
+          dataLabels: {style: {fontSize: '10px'}}
         },  
         {
           id: "Sketchup",
           marker: {
             radius: 20
           },
-          color: dirDist10
+          color: dirDist10,
+          dataLabels: {style: {fontSize: '10px'}}
         },  
         {
           id: "ArchiCad",
           marker: {
             radius: 20
           },
-          color: dirDist11
-        },
-        {
-          id: "ReCap",
-          marker: {
-            radius: 20
-          },
-          color: dirDist11
+          color: dirDist10,
+          dataLabels: {style: {fontSize: '10px'}}
         },
         {
           id: "RealityCapture",
           marker: {
             radius: 20
           },
-          color: dirDist11
+          color: dirDist10,
+          dataLabels: {style: {fontSize: '10px'}}
         },
         {
           id: "Unity3D",
           marker: {
             radius: 20
           },
-          color: dirDist12
+          color: dirDist10,
+          dataLabels: {style: {fontSize: '10px'}}
         },  
         {
           id: "Armoury3D",
           marker: {
             radius: 20
           },
-          color: dirDist12
+          color: dirDist10,
+          dataLabels: {style: {fontSize: '10px'}}
         },
                 {
           id: "Unreal",
           marker: {
             radius: 20
           },
-          color: dirDist12
+          color: dirDist10,
+          dataLabels: {style: {fontSize: '10px'}}
         },
         {
           id: "Houdini",
           marker: {
             radius: 20
           },
-          color: dirDist13
+          color: dirDist10,
+          dataLabels: {style: {fontSize: '10px'}}
         },
         {
           id: "3dsMax",
           marker: {
             radius: 20
           },
-          color: dirDist13
+          color: dirDist10,
+          dataLabels: {style: {fontSize: '10px'}}
         },
         {
           id: "Adobe_creativesuite",
           marker: {
             radius: 20
           },
-          color: dirDist13
+          color: dirDist10,
+          dataLabels: {style: {fontSize: '10px'}}
         },  
         {
           id: "Lumion",
           marker: {
             radius: 20
           },
-          color: dirDist13
+          color: dirDist10,
+          dataLabels: {style: {fontSize: '10px'}}
         },
                 {
           id: "Octane",
           marker: {
             radius: 20
           },
-          color: dirDist13
+          color: dirDist10,
+          dataLabels: {style: {fontSize: '10px'}}
         },
         {
           id: "Vray",
           marker: {
             radius: 20
           },
-          color: dirDist13
+          color: dirDist10,
+          dataLabels: {style: {fontSize: '10px'}}
         },
         {
           id: "Omniverse",
           marker: {
             radius: 20
           },
-          color: dirDist13
+          color: dirDist10,
+          dataLabels: {style: {fontSize: '10px'}}
         },
         {
           id: "TouchDesigner",
           marker: {
             radius: 20
           },
-          color: dirDist13
+          color: dirDist10,
+          dataLabels: {style: {fontSize: '10px'}}
         },  
         {
           id: "VVVV",
           marker: {
             radius: 20
           },
-          color: dirDist13
+          color: dirDist10,
+          dataLabels: {style: {fontSize: '10px'}}
         },
                 {
           id: "ProcessingJS",
           marker: {
             radius: 20
           },
-          color: dirDist13
+          color: dirDist10,
+          dataLabels: {style: {fontSize: '10px'}}
         },
         {
           id: "P5js",
           marker: {
             radius: 20
           },
-          color: dirDist13
+          color: dirDist10,
+          dataLabels: {style: {fontSize: '10px'}}
         },
         {
           id: "Python",
           marker: {
             radius: 20
           },
-          color: dirDist14
+          color: dirDist10,
+          dataLabels: {style: {fontSize: '10px'}}
         },
         {
           id: "HTML/CSS",
           marker: {
             radius: 20
           },
-          color: dirDist14
+          color: dirDist10,
+          dataLabels: {style: {fontSize: '10px'}}
         },  
         {
           id: "C#(Grasshopper API)",
           marker: {
             radius: 20
           },
-          color: dirDist14
+          color: dirDist10,
+          dataLabels: {style: {fontSize: '10px'}}
         },
                 {
           id: "ThreeJS",
           marker: {
             radius: 20
           },
-          color: dirDist14
+          color: dirDist10,
+          dataLabels: {style: {fontSize: '10px'}}
         },
         {
           id: "WebGL",
           marker: {
             radius: 20
           },
-          color: dirDist14
+          color: dirDist10,
+          dataLabels: {style: {fontSize: '10px'}}
         },
         {
           id: "Ecotect",
           marker: {
             radius: 20
           },
-          color: dirDist12
+          color: dirDist10,
+          dataLabels: {style: {fontSize: '10px'}}
         },
         {
           id: "ROS_gazebo",
           marker: {
             radius: 20
           },
-          color: dirDist12
+          color: dirDist10,
+          dataLabels: {style: {fontSize: '10px'}}
         },  
         {
           id: "DesignBuilder",
           marker: {
             radius: 20
           },
-          color: dirDist12
+          color: dirDist10,
+          dataLabels: {style: {fontSize: '10px'}}
         },
         {
           id: "CAM/CNC",
           marker: {
             radius: 20
           },
-          color: dirDist11
+          color: dirDist10,
+          dataLabels: {style: {fontSize: '10px'}}
         },  
         {
           id: "3D printing",
           marker: {
             radius: 20
           },
-          color: dirDist11  
+          color: dirDist10,
+          dataLabels: {style: {fontSize: '10px'}}
         },
         {
           id: "VR/AR",
           marker: {
             radius: 20
           },
-          color: dirDist11
+          color: dirDist10,
+          dataLabels: {style: {fontSize: '10px'}}
         },  
         {
           id: "Gcode",
           marker: {
             radius: 20
           },
-          color: dirDist11
-        }, 
+          color: dirDist10,
+          dataLabels: {style: {fontSize: '10px'}}
+        },
+        {
+          id: "CAM/CNC",
+          marker: {
+            radius: 20
+          },
+          color: dirDist10,
+          dataLabels: {style: {fontSize: '10px'}}
+        },  
         {
           id: "ExtendedReality",
           marker: {
             radius: 20
           },
-          color: dirDist11
+          color: dirDist10,
+          dataLabels: {style: {fontSize: '10px'}}
         },
         {
           id: "Photogrammetry",
           marker: {
             radius: 20
           },
-          color: dirDist10
+          color: dirDist10,
+          dataLabels: {style: {fontSize: '10px'}}
         },  
         {
           id: "SyntheticData",
           marker: {
             radius: 20
           },
-          color: dirDist10
+          color: dirDist10,
+          dataLabels: {style: {fontSize: '10px'}}
         },
         {
           id: "LiDAR",
           marker: {
             radius: 20
           },
-          color: dirDist10
+          color: dirDist10,
+          dataLabels: {style: {fontSize: '10px'}}
         },
         {
           id: "IOT",
           marker: {
             radius: 20
           },
-          color: dirDist10
+          color: dirDist10,
+          dataLabels: {style: {fontSize: '10px'}}
         },  
         {
           id: "Arduino/RaspberryPi",
           marker: {
             radius: 20
           },
-          color: dirDist10
+          color: dirDist10,
+          dataLabels: {style: {fontSize: '10px'}}
         },
       ]
     }
