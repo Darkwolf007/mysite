@@ -1,19 +1,4 @@
-/*
-Magical trail shader
 
-Author:
-  Jason Labbe
-
-Site:
-  jasonlabbe3d.com
-
-Controls:
-  - Move the mouse to create particles.
-  - Hold the middle mouse button to fade away particles.
-  - Press the right mouse button to display the underlying particle system.
-*/
-
-// If you get an error about max uniforms then you can decrease these 2 values :(
 const MAX_PARTICLE_COUNT = 70;
 const MAX_TRAIL_COUNT = 30;
 
