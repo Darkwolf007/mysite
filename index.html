@@ -12,6 +12,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
   <!-- background-->
   <link rel="stylesheet" type="text/css" href="css/bgmouse.css">
+  <script src="//static.fliphtml5.com/web/js/plugin/LightBox/js/fliphtml5-light-box-api-min.js"></script>
   <script src="https://code.highcharts.com/highcharts.js"></script>
   <script src="https://code.highcharts.com/modules/networkgraph.js"></script>
   <script src="https://code.highcharts.com/modules/accessibility.js"></script>
@@ -49,7 +50,7 @@
   <!-- Main CSS-->
   <link rel="stylesheet" href="css/main.css">
   <!-- CSS Color scheme-->
-  <link id="color-scheme" rel="stylesheet" href="css/colors/main-darkpink.css">
+  <link id="color-scheme" rel="stylesheet" href="css/colors/main-brown.css">
   <!-- removeIf(customizerDist)-->
   <link rel="stylesheet" href="../customizer/main.css">
   <!-- endremoveIf(customizerDist)-->
@@ -71,11 +72,13 @@
     <div class="collapse navbar-collapse order-1 order-lg-0" id="navbarSupportedContent">
       <!-- Navbar menu-->
       <ul class="navbar-nav ml-auto">
+        <li class="nav-item"><a class="nav-link" target="_blank" href="https://online.fliphtml5.com/wttfy/thpo/">Portfolio</a></li>
         <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
         <li class="nav-item"><a class="nav-link" href="#resume">Resume</a></li>
         <li class="nav-item"><a class="nav-link" href="#portfolio">Works</a></li>
         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
         <li class="nav-item"><a class="nav-link" target="_blank" href="https://xbuild.in">Xbuild</a></li>
+        
         </ul>
     </div>
   </nav>
@@ -194,60 +197,7 @@
               </div>
             </div>
             <!-- Services section-->
-            <div class="services-section single-section">
-              <div class="row">
-                <div class="col-12">
-                  <div class="section-heading">
-                    <p class="section-description"></p>
-                    <h2 class="section-title">My Interests</h2>
-                  </div>
-                </div>
-              </div>
-              <div class="row">
-                <!-- Single service-->
-                <div class="col-12 col-md-6 col-lg-4">
-                  <div class="single-service"><i class="icon service-icon ion-md-home"></i>
-                    <h6 class="service-title">Architectural design</h6>
-                    <p class="service-description"></p>
-                  </div>
-                </div>
-                <!-- Single service-->
-                <div class="col-12 col-md-6 col-lg-4">
-                  <div class="single-service"><i class="icon service-icon ion-md-code"></i>
-                    <h6 class="service-title">Computational Design</h6>
-                    <p class="service-description"></p>
-                  </div>
-                </div>
-                <!-- Single service-->
-                <div class="col-12 col-md-6 col-lg-4">
-                  <div class="single-service"><i class="icon service-icon ion-ios-glasses"></i>
-                    <h6 class="service-title">VR/AR development</h6>
-                    <p class="service-description"></p>
-                  </div>
-                </div>
-                <!-- Single service-->
-                <div class="col-12 col-md-6 col-lg-4">
-                  <div class="single-service"><i class="icon service-icon ion-md-cube"></i>
-                    <h6 class="service-title">3D modelling</h6>
-                    <p class="service-description"></p>
-                  </div>
-                </div>
-                <!-- Single service-->
-                <div class="col-12 col-md-6 col-lg-4">
-                  <div class="single-service"><i class="icon service-icon ion-md-move"></i>
-                    <h6 class="service-title">Creative coding</h6>
-                    <p class="service-description"></p>
-                  </div>
-                </div>
-                <!-- Single service-->
-                <div class="col-12 col-md-6 col-lg-4">
-                  <div class="single-service"><i class="icon service-icon ion-md-cog"></i>
-                    <h6 class="service-title">Machine Learning</h6>
-                    <p class="service-description"></p>
-                  </div>
-                </div>
-              </div>
-            </div>
+
           </div>
         </div>
       </div>
@@ -274,6 +224,21 @@
                   <div class="animated-bar"></div>
                 </div>
               </div>
+            </div>
+            <!-- Skills section-->
+            <div class="skills-section single-section">
+              <div class="row">
+                <div class="col-12">
+                  <div class="section-heading">
+                    <p class="section-description">My level of knowledge in tools</p>
+                    <h2 class="section-title">My Skills</h2>
+                    <h3 style="color:#c93e70; font-size:14px; margin-top: 20px ">Hover & interact with my skills</h3>
+                  </div>
+                <div id="graphskill"></div>
+                <script src="js/graph.js"></script>
+                </div>
+              </div>
+            
             </div>
             <!-- Resume section-->
             <div class="resume-section single-section">
@@ -342,21 +307,7 @@
 
               </div>
             </div>
-            <!-- Skills section-->
-            <div class="skills-section single-section">
-              <div class="row">
-                <div class="col-12">
-                  <div class="section-heading">
-                    <p class="section-description">My level of knowledge in tools</p>
-                    <h2 class="section-title">My Skills</h2>
-                    <h3 style="color:#c93e70; font-size:14px; margin-top: 20px ">Hover & interact with my skills</h3>
-                  </div>
-                <div id="graphskill"></div>
-                <script src="js/graph.js"></script>
-                </div>
-              </div>
             
-            </div>
             <!-- Video section-->
             <!-- <div class="video-section single-section">
               <div class="row align-items-center">
@@ -389,7 +340,7 @@
             <div class="row">
               <div class="col-12">
                 <div class="section-heading page-heading">
-                  <p class="section-description">Showcasing my work</p>
+                  <p class="section-description"></p>
                   <h2 class="section-title">Portfolio</h2>
                   <div class="animated-bar"></div>
                 </div>
