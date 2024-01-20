@@ -517,7 +517,7 @@ hr {
 }
 
 .lightbox-wrapper .lightbox-content .section-heading.page-heading {
-	margin-bottom: 83px;
+	margin-bottom:40px;
 	text-align: center
 }
 
@@ -1631,7 +1631,7 @@ a {
 }
 
 #portfolio .portfolio-section .filter-control {
-	margin-bottom: 16px;
+	margin-bottom: 40px;
 	text-align: center
 }
 
@@ -1647,7 +1647,7 @@ a {
 }
 
 #portfolio .portfolio-section .filter-control>li:not(:last-child) {
-	margin-right: 16px
+	margin-right: 20px
 }
 
 #portfolio .portfolio-section .filter-control>li.tab-active:before,
