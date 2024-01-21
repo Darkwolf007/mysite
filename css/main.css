@@ -1790,7 +1790,7 @@ filter: none;
 .blog-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(45%, 1fr));
-    gap: 10px;
+    gap: 40px;
 }
 
 
@@ -1800,7 +1800,7 @@ filter: none;
 }
 
 .blog-item a {
-    display: block; /* Ensure the link takes the full space of its container */
+    display: list-item; 
 }
 
 .blog-item img {

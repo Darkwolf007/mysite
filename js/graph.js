@@ -11,7 +11,7 @@ var dirDist50 = "#c93e70",
 Highcharts.chart("graphskill", {
   chart: {
     type: "networkgraph",
-    marginTop: 10,
+    marginTop: 1,
     backgroundColor: '#101010',
   },
 
@@ -28,7 +28,7 @@ Highcharts.chart("graphskill", {
 
         integration: 'verlet',
         // Half of the repulsive force
-        gravitationalConstant: 10,
+        gravitationalConstant: 5,
         linkLength: 150
       }
     }
