@@ -1508,6 +1508,14 @@ a {
 	  fill: #101010;
 }
 
+#timeline_container {
+    min-width: 310px;
+    max-width: 1800px;
+    height: 600px;
+    margin: 0 auto;
+  }
+  
+
 /*#resume .skills-section .single-skill .skill-info {
 	-ms-flex-pack: justify;
 	color: #cecece;
