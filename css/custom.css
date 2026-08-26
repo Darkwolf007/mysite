@@ -79,6 +79,22 @@ hr {
     margin-bottom: 0;
 }
 
+/* Below desktop, 201px overflows/wraps two-word headings ("selected
+   works", "about me"). Scale with viewport width instead so the whole
+   heading always stays on one line; 14vw is tuned (with margin) against
+   "selected works", the longest of these headings, fit-tested down to a
+   320px-wide screen. */
+@media (max-width: 1199.98px) {
+    .lightbox-wrapper .lightbox-content .section-heading.page-heading {
+        text-align: center;
+    }
+
+    .lightbox-wrapper .lightbox-content .section-heading.page-heading>.section-title {
+        font-size: 14vw;
+        white-space: nowrap;
+    }
+}
+
 /* The navbar now stays visible (and clickable) above every open panel
    instead of a dedicated close button, so panel content needs enough
    top clearance to never sit underneath it. */
@@ -148,9 +164,81 @@ hr {
     margin-right: 32px;
 }
 
+/* Below desktop, the flat 24px/32px sizing wraps this 11-tag list into
+   6-8 near-one-per-line rows. Scale both with viewport width (margin in
+   em so it shrinks together with the text) and center the list so it
+   settles into 3 balanced lines, fit-tested down to a 320px-wide screen. */
+@media (max-width: 1199.98px) {
+    #portfolio .portfolio-section .filter-control {
+        text-align: center;
+    }
+
+    #portfolio .portfolio-section .filter-control>li {
+        font-size: clamp(11px, 4vw, 50px);
+        line-height: 1.6;
+    }
+
+    #portfolio .portfolio-section .filter-control>li:not(:last-child) {
+        margin-right: 0.5em;
+    }
+}
+
 #portfolio .portfolio-section .filter-control>li.tab-active,
 #portfolio .portfolio-section .filter-control>li:hover {
     color: var(--text-primary);
+}
+
+/* Showcase (Features) filter tabs reuse the Works filter's plain-typography
+   treatment — no underline, left-aligned, faint text that turns white on
+   the active/hovered tab. */
+#blog .blog-section .filter-control {
+    cursor: default;
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+#blog .blog-section .filter-control>li {
+    border-bottom: 1px solid transparent;
+    color: var(--text-faint);
+    cursor: pointer;
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    position: relative;
+    transition: all .1s ease-in-out;
+}
+
+#blog .blog-section .filter-control>li:not(:last-child) {
+    margin-right: 32px;
+}
+
+#blog .blog-section .filter-control>li.tab-active,
+#blog .blog-section .filter-control>li:hover {
+    color: var(--text-primary);
+}
+
+@media (max-width: 1199.98px) {
+    #blog .blog-section .filter-control {
+        text-align: center;
+    }
+
+    #blog .blog-section .filter-control>li {
+        font-size: clamp(11px, 4vw, 50px);
+        line-height: 1.6;
+    }
+
+    #blog .blog-section .filter-control>li:not(:last-child) {
+        margin-right: 0.5em;
+    }
+}
+
+/* ResearchGate has no ionicons glyph, so its brand mark is inlined as SVG
+   sized/colored to match the ion-logo-* icons sitting next to it. */
+.home-area .fixed-wrapper .social-icons svg.icon-svg-researchgate {
+    width: 23px;
+    height: 23px;
+    fill: #f3f3f3;
+    display: block;
 }
 
 .home-area,
@@ -273,28 +361,119 @@ body:has(.about-on, .resume-on, .portfolio-on, .blog-on) .navbar {
     background-color: var(--text-primary);
 }
 
+/* Mobile menu button: no badge/background, just two bold bars that
+   converge and rotate into an X when the panel is open. Bootstrap's
+   Collapse plugin already syncs aria-expanded on this trigger, so that
+   attribute alone drives the morph — no extra JS needed. */
+@media (max-width: 767.98px) {
+    .navbar .navbar-menu {
+        display: block;
+        height: 16px;
+        position: fixed;
+        right: 20px;
+        top: 20px;
+        width: 28px;
+        z-index: 10001;
+    }
+
+    .navbar .navbar-menu .btn-line {
+        display: none;
+    }
+
+    .navbar .navbar-menu:after,
+    .navbar .navbar-menu:before {
+        background-color: var(--text-primary);
+        content: '';
+        height: 3px;
+        left: 0;
+        position: absolute;
+        transition: top .25s ease, transform .25s ease;
+        width: 100%;
+    }
+
+    .navbar .navbar-menu:before {
+        top: 0;
+    }
+
+    .navbar .navbar-menu:after {
+        top: calc(100% - 3px);
+    }
+
+    .navbar .navbar-menu[aria-expanded="true"]:before {
+        top: 50%;
+        transform: translateY(-50%) rotate(45deg);
+    }
+
+    .navbar .navbar-menu[aria-expanded="true"]:after {
+        top: 50%;
+        transform: translateY(-50%) rotate(-45deg);
+    }
+}
+
+/* Mobile menu panel: full-screen dark overlay with large stacked links,
+   instead of a small dropdown box — same treatment as the reference
+   site. The `height: 100vh !important` beats the inline pixel height
+   Bootstrap's Collapse plugin animates with, so the panel is simply
+   shown/hidden and the fade/scale below is the only motion. Section
+   navigation still runs through the existing #overlay-effect wipe (see
+   main.js), so the page transition itself is unchanged. */
 @media (max-width: 767.98px) {
     .navbar .navbar-nav {
         justify-content: flex-start;
     }
 
+    .navbar .navbar-collapse.collapsing,
+    .navbar .navbar-collapse.show {
+        animation: mobileMenuReveal .3s ease both;
+        height: 100vh !important;
+        left: 0;
+        position: fixed;
+        top: 0;
+        width: 100vw;
+    }
+
     .navbar .navbar-collapse .navbar-nav {
-        background-color: var(--bg-surface);
-        border-radius: 16px;
-        box-shadow: 0 12px 30px rgba(0, 0, 0, .35);
+        align-items: flex-start;
+        background-color: var(--bg-page);
+        border-radius: 0;
+        box-shadow: none;
+        flex-direction: column;
+        gap: 0;
+        height: 100%;
+        justify-content: flex-start;
+        margin-left: 0;
+        padding: 100px 32px 32px;
+        position: static;
+        top: 0;
+        width: 100%;
     }
 
     .navbar .navbar-nav .nav-link,
     .navbar .navbar-collapse .navbar-nav .nav-link {
-        padding: 12px 20px;
+        font-size: 40px;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        padding: 10px 0;
         width: 100%;
+    }
+}
+
+@keyframes mobileMenuReveal {
+    from {
+        opacity: 0;
+        transform: scale(.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
     }
 }
 
 /* ------------------------------ About ---------------------------------- */
 #about .info-section .info-img img {
     border: none;
-    border-radius: 20px;
+    border-radius: 0;
     box-shadow: 0 20px 50px rgba(0, 0, 0, .45);
 }
 
@@ -338,10 +517,19 @@ body:has(.about-on, .resume-on, .portfolio-on, .blog-on) .navbar {
 }
 
 .content-download.button-main.button-scheme {
-    border-radius: 999px;
+    background-color: var(--bg-surface-hover) !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 0;
+    color: var(--text-primary);
     font-weight: 700;
     letter-spacing: .2px;
     padding: 13px 32px;
+}
+
+.content-download.button-main.button-scheme:hover,
+.content-download.button-main.button-scheme:focus {
+    background-color: var(--border) !important;
+    border-color: var(--border) !important;
 }
 
 #about .info-section .info-content .content-follow:before {
@@ -362,6 +550,167 @@ body:has(.about-on, .resume-on, .portfolio-on, .blog-on) .navbar {
 #about .info-section .info-content .content-follow li a:hover {
     background-color: rgba(0, 153, 255, .18);
     color: var(--accent);
+}
+
+/* ------------------------------ Skills graph -----------------------------
+   The graph fills the entire panel edge-to-edge — full screen, not a box
+   sitting below the title — with "my skills" floating over it as an
+   absolutely-positioned overlay instead of pushing the graph down.
+   js/graph.js keeps nodes clear of a reserved band under that title (see
+   its TOP_EXCLUSION_RATIO) so the two don't visually collide.
+
+   animatedModal sets this panel's height to "100%" as an inline style,
+   which on a position:fixed element resolves against the *large*
+   mobile viewport (i.e. with the browser's address bar hidden) even
+   while it's actually showing — the panel ends up taller than what's
+   visible, so the last bit of it needs a scroll to reach. 100dvh tracks
+   the real, currently-visible viewport instead, so nothing overflows
+   below the fold. (!important is required to beat that inline style.)
+   The flex chain below carries that real height down from #resume
+   through SimpleBar's own wrapper divs to .lightbox-content, so
+   js/graph.js's ResizeObserver always measures a real, full-panel box —
+   no fixed aspect-ratio, no guessed pixel budget, so it can never
+   overflow into a scrollbar. Scoped to #resume only; every other panel
+   keeps its normal (in-flow) heading and SimpleBar's normal scroll. */
+#resume.lightbox-wrapper {
+    height: 100vh !important;
+    height: 100dvh !important;
+}
+
+#resume.lightbox-wrapper .simplebar-content,
+#resume .container,
+#resume .container>.row,
+#resume .container>.row>.col-12,
+#resume .lightbox-content {
+    height: 100%;
+}
+
+#resume .lightbox-content {
+    margin: 0;
+    position: relative;
+}
+
+#resume .lightbox-content>.row:first-child {
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 2;
+}
+
+/* position:fixed (viewport-relative) rather than absolute-inside-.lightbox-content,
+   so this ignores .container's left/right/top padding entirely and runs
+   truly edge-to-edge — full width, from directly under the fixed navbar
+   down to the bottom of the screen. */
+#resume .lightbox-content>.skills-section {
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 42px;
+    z-index: 1;
+}
+
+@media (max-width: 767.98px) {
+    #resume .lightbox-content>.skills-section {
+        top: 62px;
+    }
+}
+
+/* This heading is empty (the "My Skills" text lives in the overlaid
+   page-heading instead) but still carries the shared panel heading's
+   margin-bottom, pushing the graph down for no reason. */
+#resume .skills-section .section-heading {
+    display: none;
+}
+
+#resume .skills-section .row,
+#resume .skills-section .col-12 {
+    height: 100%;
+}
+
+#resume .skills-section .col-12 {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Labels sit below each node, not inside it, since most of them are
+   longer than any node is wide. flex-basis:0 (not "auto") so this
+   ignores main.css's own height:500px instead of using it as a
+   starting point. */
+#graphskill {
+    flex: 1 1 0;
+    height: auto;
+    min-height: 0;
+    width: 100%;
+}
+
+#graphskill svg {
+    display: block;
+    height: 100%;
+    width: 100%;
+}
+
+#graphskill .graph-link {
+    stroke: var(--border);
+    stroke-width: 1px;
+    transition: opacity .2s ease;
+}
+
+#graphskill .graph-link-category {
+    stroke: var(--text-faint);
+}
+
+#graphskill .graph-link.is-dim {
+    opacity: .08;
+}
+
+#graphskill .graph-node {
+    cursor: pointer;
+    outline: none;
+}
+
+#graphskill .graph-node circle {
+    stroke-width: 1.5px;
+    transition: filter .2s ease, opacity .2s ease;
+}
+
+#graphskill .graph-node-category circle {
+    stroke: rgba(0, 0, 0, .3);
+}
+
+#graphskill .graph-node-tool circle {
+    stroke: var(--text-faint);
+}
+
+#graphskill .graph-node.is-dim {
+    opacity: .18;
+}
+
+#graphskill .graph-node:hover circle,
+#graphskill .graph-node:focus circle {
+    filter: brightness(1.25);
+}
+
+#graphskill .graph-label {
+    fill: var(--text-secondary);
+    font-family: 'Funnel Sans', Helvetica, sans-serif;
+    font-size: 11px;
+    pointer-events: none;
+    transition: opacity .2s ease;
+    user-select: none;
+}
+
+#graphskill .graph-label-category {
+    fill: var(--text-primary);
+    font-size: 12.5px;
+    font-weight: 600;
+}
+
+@media (max-width: 767.98px) {
+    #graphskill .graph-label-category {
+        font-size: 15px;
+    }
 }
 
 /* --------------------- Education / Experience --------------------------
@@ -484,7 +833,7 @@ body:has(.about-on, .resume-on, .portfolio-on, .blog-on) .navbar {
 }
 
 #portfolio .portfolio-section .portfolio-grid.bento-grid .portfolio-wrapper {
-    border-radius: 12px;
+    border-radius: 0;
     overflow: hidden;
 }
 
@@ -520,19 +869,33 @@ body:has(.about-on, .resume-on, .portfolio-on, .blog-on) .navbar {
     opacity: 1;
 }
 
-/* Persistent title + category caption under every tile (was hover-only,
-   centered, "More Info" filler text) matching the reference site's
-   always-visible bold-title/muted-category label under each work. */
+/* Title-only caption, revealed on hover as a solid black rectangle behind
+   the text (sized to the text, not the whole tile). The category/filter
+   label (.content-more) is populated by custom.js but hidden here. */
 #portfolio .portfolio-section .portfolio-grid .portfolio-wrapper .item-content {
-    background: linear-gradient(to top, rgba(0, 0, 0, .8), rgba(0, 0, 0, 0) 65%);
-    bottom: 0;
-    padding: 18px 18px 14px;
+    background: rgba(0, 0, 0, .75);
+    border-radius: 0;
+    bottom: 12px;
+    display: inline-block;
+    left: 12px;
+    opacity: 0;
+    padding: 10px 14px;
+    right: auto;
     text-align: left;
     top: auto;
+    transition: opacity .25s ease-in-out;
+    visibility: hidden;
+    width: auto;
+}
+
+#portfolio .portfolio-section .portfolio-grid .portfolio-wrapper:hover .item-content {
+    opacity: 1;
+    visibility: visible;
 }
 
 #portfolio .portfolio-section .portfolio-grid .portfolio-wrapper .item-content .content-title {
     background-color: transparent;
+    color: #fff;
     display: block;
     font-size: 17px;
     font-weight: 700;
@@ -542,12 +905,7 @@ body:has(.about-on, .resume-on, .portfolio-on, .blog-on) .navbar {
 }
 
 #portfolio .portfolio-section .portfolio-grid .portfolio-wrapper .item-content .content-more {
-    color: var(--text-secondary);
-    display: block;
-    font-size: 12px;
-    font-weight: 600;
-    margin-top: 2px;
-    text-transform: capitalize;
+    display: none;
 }
 
 @media (max-width: 1199.98px) and (min-width: 768px) {

@@ -102,6 +102,20 @@ $('a.nav-link[href="#blog"]').one("click", function () {
     activateDeferredMedia($("#blog"));
 });
 
+// Showcase (Features) category tabs: the blog grid is a plain CSS grid
+// (unlike the Works masonry), so a show/hide toggle is enough — no
+// isotope instance needed.
+$("#blog .filter-control [data-filter]").on("click", function () {
+    const $tabs = $("#blog .filter-control [data-filter]");
+    $tabs.removeClass("tab-active");
+    $(this).addClass("tab-active");
+    const filter = $(this).data("filter");
+    $("#blog .blog-grid .blog-item").each(function () {
+        const show = filter === "*" || $(this).hasClass(filter);
+        $(this).toggle(show);
+    });
+});
+
 $(".modal").on("show.bs.modal", function () {
     activateDeferredMedia($(this));
 });
