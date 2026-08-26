@@ -40,8 +40,17 @@
   const IDLE_ALPHA = 0.025;
   // The "my skills" title overlays the top of the canvas (see custom.css)
   // instead of pushing the graph down, so nodes are kept below this band
-  // instead of settling underneath the text.
-  const TOP_EXCLUSION_RATIO = 0.24;
+  // instead of settling underneath the text. TITLE_TOP_OFFSET matches the
+  // 70px top offset custom.css gives the title (to line it up with the
+  // other panels' headings); the ratio covers the title's own height on
+  // top of that.
+  const TITLE_TOP_OFFSET = 70;
+  // Mobile's title is much shorter (smaller font, "my skills" wraps to
+  // less height) than desktop's, which runs as large as an unscaled
+  // 201px — a shared ratio undersizes one or the other, so this is
+  // split by breakpoint instead.
+  const TOP_EXCLUSION_RATIO_MOBILE = 0.1;
+  const TOP_EXCLUSION_RATIO_DESKTOP = 0.24;
 
   function buildFullGraph() {
     const categoryNodes = categories.map((c) => ({ id: c.id, type: "category", color: c.color, toolCount: c.tools.length }));
@@ -91,7 +100,7 @@
     const collapsed = width <= MOBILE_WIDTH;
     const { nodes, links } = collapsed ? buildCollapsedGraph() : buildFullGraph();
 
-    const topExclusion = height * TOP_EXCLUSION_RATIO;
+    const topExclusion = TITLE_TOP_OFFSET + height * (collapsed ? TOP_EXCLUSION_RATIO_MOBILE : TOP_EXCLUSION_RATIO_DESKTOP);
     const availableHeight = height - topExclusion;
     const centerY = topExclusion + availableHeight / 2;
     // "spread" (the narrower usable dimension) sizes link distance, so
@@ -172,15 +181,15 @@
 
     const simulation = d3.forceSimulation(nodes)
       .force("link", d3.forceLink(links).id((d) => d.id).distance(collapsed ? spread * 0.32 : spread * 0.17).strength(0.55))
-      .force("charge", d3.forceManyBody().strength(-(collapsed ? reach * 0.95 : reach * 0.8)))
+      .force("charge", d3.forceManyBody().strength(-(collapsed ? reach * 0.55 : reach * 0.8)))
       .force("collide", d3.forceCollide().radius((d) => nodeRadius(d) + (collapsed ? 46 : 34)).strength(0.9))
       // Weak, so charge (above) does the actual work of spreading nodes
       // out to the edges — these just keep the whole cloud roughly
       // centered instead of drifting off to one side. Categories are
       // pulled a little harder than tools so they anchor near the
       // middle while their tools fan out further.
-      .force("x", d3.forceX(width / 2).strength(collapsed ? 0.025 : (d) => (d.type === "category" ? 0.05 : 0.02)))
-      .force("y", d3.forceY(centerY).strength(collapsed ? 0.035 : (d) => (d.type === "category" ? 0.09 : 0.045)))
+      .force("x", d3.forceX(width / 2).strength(collapsed ? 0.07 : (d) => (d.type === "category" ? 0.05 : 0.02)))
+      .force("y", d3.forceY(centerY).strength(collapsed ? 0.09 : (d) => (d.type === "category" ? 0.09 : 0.045)))
       .on("tick", ticked)
       .alphaTarget(IDLE_ALPHA)
       .alphaDecay(0.05);

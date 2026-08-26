@@ -590,11 +590,15 @@ body:has(.about-on, .resume-on, .portfolio-on, .blog-on) .navbar {
     position: relative;
 }
 
+/* top:70px matches the margin-top every other panel's .lightbox-content
+   gets from main.css (which this panel's own .lightbox-content zeroes
+   out above, since the graph needs to run full-bleed) — same 70px, just
+   applied to the title alone so it lines up with "about"/"showcase". */
 #resume .lightbox-content>.row:first-child {
     left: 0;
     position: absolute;
     right: 0;
-    top: 0;
+    top: 70px;
     z-index: 2;
 }
 
