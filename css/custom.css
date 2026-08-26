@@ -495,6 +495,31 @@ body:has(.about-on, .resume-on, .portfolio-on, .blog-on) .navbar {
     width: 100%;
 }
 
+/* main.css's own .video-play rule is broken (a missing semicolon drops
+   "display: none" entirely, and the hover state never restores opacity),
+   so the static thumbnail lets the gif play underneath it but never
+   actually reveals it. Redone cleanly here: gif is absolutely positioned
+   over the static image, invisible until hover, crossfades in. */
+#portfolio .portfolio-section .portfolio-grid .portfolio-wrapper {
+    position: relative;
+}
+
+#portfolio .portfolio-section .portfolio-grid .portfolio-wrapper .video-play {
+    height: 100%;
+    left: 0;
+    object-fit: cover;
+    opacity: 0;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    transition: opacity .25s ease-in-out;
+    width: 100%;
+}
+
+#portfolio .portfolio-section .portfolio-grid .portfolio-wrapper:hover .video-play {
+    opacity: 1;
+}
+
 /* Persistent title + category caption under every tile (was hover-only,
    centered, "More Info" filler text) matching the reference site's
    always-visible bold-title/muted-category label under each work. */
