@@ -1,23 +1,561 @@
-
-
-/* #home {
-    background-image: url(../img/yov1.gif);
-} */
 #home-bg {
     position: absolute;
     opacity: 1;
 }
 
-.material-icons {
+.close .icon.ion-md-close-circle {
     font-size: 40px;
 }
 
 #text-poppy {
-  color: #FFFFFF;
-  background: rgba(0, 0,0);
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 5px;
-  margin-left: width/2;
-  padding: 2px;
+    color: #FFFFFF;
+    background: rgba(0, 0, 0);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 5px;
+    margin-left: width/2;
+    padding: 2px;
+}
+
+/* ---------------------------------------------------------------------
+   Dark-grey theme, bold Funnel Sans, blue accent. The hero canvas and
+   every panel below it share one near-black grey so there's no visible
+   seam between them. These rules load after main.css / main-pink.css
+   and win on the cascade, so main.css itself is left untouched.
+   --------------------------------------------------------------------- */
+
+:root {
+    --bg-page: #141414;
+    --bg-surface: #212124;
+    --bg-surface-hover: #2a2a2e;
+    --text-primary: #f5f3ee;
+    --text-secondary: #b1ada4;
+    --text-faint: #7c786f;
+    --accent: #0099ff;
+    --border: #333338;
+}
+
+body {
+    background-color: var(--bg-page);
+    color: var(--text-secondary);
+    font-family: 'Funnel Sans', 'Helvetica', sans-serif;
+    font-weight: 500;
+}
+
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--text-primary);
+    font-family: 'Funnel Sans', 'Helvetica', sans-serif;
+    font-weight: 800;
+}
+
+hr {
+    border-top-color: var(--border);
+}
+
+/* Section headings (About Me / My Skills / Works / Get in Touch): one big,
+   tight, unapologetic display size across every panel, matching the scale
+   used on jessievan.framer.website. Left-aligned, not centered. */
+.lightbox-wrapper .lightbox-content .section-heading.page-heading {
+    margin-bottom: 38px;
+    text-align: left;
+}
+
+.lightbox-wrapper .lightbox-content .section-heading.page-heading>.section-title {
+    font-size: 201px;
+    font-weight: 700;
+    letter-spacing: -0.06em;
+    line-height: 0.9;
+    margin-bottom: 0;
+}
+
+/* The navbar now stays visible (and clickable) above every open panel
+   instead of a dedicated close button, so panel content needs enough
+   top clearance to never sit underneath it. */
+.lightbox-wrapper .lightbox-close {
+    display: none;
+}
+
+.lightbox-wrapper .container {
+    padding-top: 12px;
+}
+
+@media (max-width: 767.98px) {
+    .lightbox-wrapper .container {
+        padding-top: 30px;
+    }
+}
+
+/* Same edge-to-edge treatment as Works for every other panel. */
+#about .container,
+#resume .container,
+#blog .container {
+    max-width: 100%;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+@media (max-width: 1199.98px) and (min-width: 768px) {
+
+    #about .container,
+    #resume .container,
+    #blog .container {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+}
+
+@media (max-width: 767.98px) {
+
+    #about .container,
+    #resume .container,
+    #blog .container {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+}
+
+/* No decorative rule under headings, no underline on filter tabs — plain
+   typography and whitespace only. */
+.lightbox-wrapper .lightbox-content .section-heading.page-heading>.animated-bar,
+#portfolio .portfolio-section .filter-control>li.tab-active:before,
+#portfolio .portfolio-section .filter-control>li:hover:before {
+    display: none;
+}
+
+#portfolio .portfolio-section .filter-control {
+    text-align: left;
+}
+
+#portfolio .portfolio-section .filter-control>li {
+    color: var(--text-faint);
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+}
+
+#portfolio .portfolio-section .filter-control>li:not(:last-child) {
+    margin-right: 32px;
+}
+
+#portfolio .portfolio-section .filter-control>li.tab-active,
+#portfolio .portfolio-section .filter-control>li:hover {
+    color: var(--text-primary);
+}
+
+.home-area,
+.lightbox-wrapper,
+.preloader,
+#overlay-effect {
+    background-color: var(--bg-page);
+}
+
+/* ---------------------------- Navbar ---------------------------------
+   Transparent on the hero (homepage) — the band only shows up once a
+   panel is open (see the body:has() rule below), because that's the
+   only time there's scrolled content that actually needs hiding behind
+   it. Sits above every lightbox panel (z-index) so it's the one,
+   permanent way to move between sections — there's no separate close
+   button. Kept to a slim ~45px total so it reads as a bar, not a block. */
+.navbar {
+    background-color: transparent;
+    padding: 6px 32px;
+    z-index: 10000;
+}
+
+body:has(.about-on, .resume-on, .portfolio-on, .blog-on) .navbar {
+    background-color: var(--bg-page);
+}
+
+@media (max-width: 767.98px) {
+    .navbar {
+        padding: 14px 20px;
+    }
+}
+
+/* The logo is taken out of the flex row entirely (absolute) so the link
+   row can use the bar's full width — otherwise the logo's own footprint
+   would push "Portfolio" in further than "Xbuild" sits from the right. */
+.navbar .navbar-collapse {
+    flex-grow: 1;
+    width: 100%;
+}
+
+.navbar .navbar-collapse .navbar-nav {
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.navbar .navbar-nav {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 16px;
+    gap: clamp(16px, 4vw, 48px);
+}
+
+.navbar .navbar-nav .nav-item:not(:last-child) .nav-link {
+    margin-right: 0;
+}
+
+.navbar .navbar-nav .nav-link,
+.navbar .navbar-collapse .navbar-nav .nav-link {
+    background-color: transparent;
+    border-radius: 0;
+    color: var(--text-primary);
+    font-size: 1em;
+    font-weight: 600;
+    padding: 2px 0;
+    white-space: nowrap;
+}
+
+.navbar .navbar-brand {
+    align-items: center;
+    display: flex;
+    left: 32px;
+    margin-right: 0;
+    opacity: .45;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: -1;
+}
+
+.navbar .navbar-brand img {
+    width: 24px;
+}
+
+@media (max-width: 767.98px) {
+    .navbar .navbar-brand {
+        left: 20px;
+        opacity: 1;
+        position: static;
+        transform: none;
+        z-index: auto;
+    }
+}
+
+/* Nav now spreads edge-to-edge (space-between) like
+   jessievan.framer.website's nav, so it needs the full width after the
+   logo — no balancing spacer needed. */
+.navbar-spacer {
+    display: none;
+}
+
+@media (max-width: 767.98px) {
+    .navbar-spacer {
+        display: none;
+    }
+}
+
+.navbar .navbar-brand span {
+    color: var(--text-primary);
+}
+
+.navbar .navbar-brand svg #logo-text {
+    fill: var(--text-primary);
+}
+
+.navbar .navbar-menu .btn-line,
+.navbar .navbar-menu:after,
+.navbar .navbar-menu:before {
+    background-color: var(--text-primary);
+}
+
+@media (max-width: 767.98px) {
+    .navbar .navbar-nav {
+        justify-content: flex-start;
+    }
+
+    .navbar .navbar-collapse .navbar-nav {
+        background-color: var(--bg-surface);
+        border-radius: 16px;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, .35);
+    }
+
+    .navbar .navbar-nav .nav-link,
+    .navbar .navbar-collapse .navbar-nav .nav-link {
+        padding: 12px 20px;
+        width: 100%;
+    }
+}
+
+/* ------------------------------ About ---------------------------------- */
+#about .info-section .info-img img {
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, .45);
+}
+
+#about .info-section .info-content .content-title {
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: -.5px;
+}
+
+#about .info-section .info-content .content-description p {
+    color: var(--text-secondary);
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+#about .info-section .info-content .content-description p:last-child {
+    border-bottom: none;
+}
+
+#about .info-section .info-content .content-info {
+    margin-top: 26px;
+}
+
+#about .info-section .info-content .content-info .single-info {
+    margin-bottom: 16px;
+}
+
+#about .info-section .info-content .content-info .single-info>span {
+    color: var(--text-faint);
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    margin-bottom: 3px;
+    text-transform: uppercase;
+}
+
+#about .info-section .info-content .content-info .single-info>p {
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.content-download.button-main.button-scheme {
+    border-radius: 999px;
+    font-weight: 700;
+    letter-spacing: .2px;
+    padding: 13px 32px;
+}
+
+#about .info-section .info-content .content-follow:before {
+    display: none;
+}
+
+#about .info-section .info-content .content-follow li a {
+    align-items: center;
+    background-color: rgba(255, 255, 255, .06);
+    border-radius: 50%;
+    color: var(--text-secondary);
+    display: inline-flex;
+    height: 38px;
+    justify-content: center;
+    width: 38px;
+}
+
+#about .info-section .info-content .content-follow li a:hover {
+    background-color: rgba(0, 153, 255, .18);
+    color: var(--accent);
+}
+
+/* --------------------- Education / Experience --------------------------
+   These used to require a click per entry to reveal anything at all.
+   Simplified to a plain, scannable list: colored tick on the left,
+   role + year, no click affordance, no card chrome. */
+#resume .resume-section .resume-item,
+#about .resume-section .resume-item {
+    background-color: transparent !important;
+    border-left: none !important;
+    padding: 16px 4px;
+}
+
+#resume .resume-section .resume-item:not(:last-child),
+#about .resume-section .resume-item:not(:last-child) {
+    border-bottom: none;
+}
+
+#resume .resume-section .resume-item:hover,
+#about .resume-section .resume-item:hover {
+    background-color: transparent !important;
+}
+
+#resume .resume-section .resume-item .item-title,
+#about .resume-section .resume-item .item-title {
+    cursor: default;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+#resume .resume-section .resume-item .item-details,
+#about .resume-section .resume-item .item-details {
+    color: var(--text-secondary) !important;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+#resume .resume-section .resume-item .item-arrow,
+#about .resume-section .resume-item .item-arrow {
+    display: none;
+}
+
+/* ---------------------------- Other cards -------------------------------- */
+#about .services-section .single-service,
+#about .testimonials-section .single-review,
+#about .pricing-section .single-plan,
+#contact .contact-section .contact-form .form-group .form-control {
+    background-color: var(--bg-surface);
+}
+
+#about .services-section .single-service .service-title,
+#about .pricing-section .single-plan .plan-type,
+#about .pricing-section .single-plan .plan-price {
+    color: var(--text-primary);
+}
+
+#contact .contact-section .contact-form .form-group .form-control {
+    border-bottom-color: var(--border);
+    color: var(--text-primary);
+}
+
+#contact .contact-section .contact-form .form-group .form-control:-webkit-autofill,
+#contact .contact-section .contact-form .form-group .form-control:-webkit-autofill:active,
+#contact .contact-section .contact-form .form-group .form-control:-webkit-autofill:focus,
+#contact .contact-section .contact-form .form-group .form-control:-webkit-autofill:hover {
+    -webkit-box-shadow: 0 0 0 1000px var(--bg-surface) inset;
+    -webkit-text-fill-color: var(--text-primary) !important;
+}
+
+.lightbox-wrapper .lightbox-close .close-btn .btn-line,
+.lightbox-wrapper .lightbox-close .close-btn:after,
+.lightbox-wrapper .lightbox-close .close-btn:before {
+    background-color: var(--text-primary);
+}
+
+/* ------------------------------ Works (bento) ---------------------------
+   Isotope (main.js) still runs and stamps inline position/width/height on
+   each .single-item; those are neutralized here so a plain CSS grid can
+   take over and give the panel its bento look, reshuffled on every open
+   by js/custom.js. Filtering keeps working off the existing .filter-item
+   show/hide handler, which is layout-agnostic. */
+#portfolio .container {
+    max-width: 100%;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+#portfolio .portfolio-section .portfolio-grid.bento-grid {
+    display: grid !important;
+    gap: 18px;
+    grid-auto-flow: dense;
+    grid-auto-rows: 220px;
+    grid-template-columns: repeat(6, 1fr);
+    margin-left: 0;
+    margin-right: 0;
+}
+
+#portfolio .portfolio-section .portfolio-grid.bento-grid .single-item {
+    height: auto !important;
+    left: auto !important;
+    max-width: none !important;
+    padding: 0 !important;
+    position: static !important;
+    top: auto !important;
+    width: auto !important;
+}
+
+#portfolio .portfolio-section .portfolio-grid.bento-grid .single-item.bento-w2 {
+    grid-column: span 2;
+}
+
+#portfolio .portfolio-section .portfolio-grid.bento-grid .single-item.bento-h2 {
+    grid-row: span 2;
+}
+
+#portfolio .portfolio-section .portfolio-grid.bento-grid .portfolio-wrapper,
+#portfolio .portfolio-section .portfolio-grid.bento-grid .portfolio-item {
+    height: 100%;
+    margin-bottom: 0;
+}
+
+#portfolio .portfolio-section .portfolio-grid.bento-grid .portfolio-wrapper {
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+#portfolio .portfolio-section .portfolio-grid.bento-grid .portfolio-wrapper img {
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    width: 100%;
+}
+
+/* Persistent title + category caption under every tile (was hover-only,
+   centered, "More Info" filler text) matching the reference site's
+   always-visible bold-title/muted-category label under each work. */
+#portfolio .portfolio-section .portfolio-grid .portfolio-wrapper .item-content {
+    background: linear-gradient(to top, rgba(0, 0, 0, .8), rgba(0, 0, 0, 0) 65%);
+    bottom: 0;
+    padding: 18px 18px 14px;
+    text-align: left;
+    top: auto;
+}
+
+#portfolio .portfolio-section .portfolio-grid .portfolio-wrapper .item-content .content-title {
+    background-color: transparent;
+    display: block;
+    font-size: 17px;
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+}
+
+#portfolio .portfolio-section .portfolio-grid .portfolio-wrapper .item-content .content-more {
+    color: var(--text-secondary);
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: 2px;
+    text-transform: capitalize;
+}
+
+@media (max-width: 1199.98px) and (min-width: 768px) {
+    #portfolio .container {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    #portfolio .portfolio-section .portfolio-grid.bento-grid {
+        grid-auto-rows: 190px;
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 767.98px) {
+    #portfolio .container {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    /* Single stacked column on mobile — matches the reference site,
+       which drops the multi-column grid entirely at this width. */
+    #portfolio .portfolio-section .portfolio-grid.bento-grid {
+        display: flex !important;
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    #portfolio .portfolio-section .portfolio-grid.bento-grid .single-item {
+        width: 100%;
+    }
+
+    #portfolio .portfolio-section .portfolio-grid.bento-grid .portfolio-wrapper {
+        height: 280px;
+    }
 }

@@ -68,7 +68,7 @@
     Highcharts.chart('timeline_chart', {
       chart: {
         type: 'scatter',
-        backgroundColor: '#101010',
+        backgroundColor: '#141414',
         styledMode: false,
         zoomType: 'x',
         spacing: [20, 20, 40, 20]
@@ -114,13 +114,13 @@
       series: [
         {
           name: 'Education',
-          color: '#c93e70',
+          color: '#f5f3ee',
           data: eduPoints,
           marker: { radius: 8 }
         },
         {
           name: 'Experience',
-          color: '#2a9d8f',
+          color: '#f5f3ee',
           data: expPoints,
           marker: { radius: 9 }
         }

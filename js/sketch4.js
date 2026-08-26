@@ -12,7 +12,7 @@ let canv;
 // const palette = ["#E90047", "#00FFAA", "#003BFE", "#fff717", "#FF8D00"];
 // const palette = ["#FF36B9", "#FF4B24", "#FD2E24", "#FF6F02", "#FFD801"];
 // const palette = ["#6696BA", "#E2E38B", "#E7A553", "#7E4B68", "#292965"];
-const palette = ["#280F36","#174EA6", "#292965", "#CE751D", "#E7A553"];
+const palette = ["#0099FF", "#33ADFF", "#0077CC", "#004D80", "#E7A553"];
 
 
 function setup() {
@@ -23,7 +23,7 @@ function setup() {
 
   maxR = max(width, height) * 0.45;
 
-  background(0);
+  background(20, 20, 20);
 }
 
 function draw() {

@@ -34,7 +34,7 @@ Highcharts.chart("graphskill", {
   chart: {
     type: "networkgraph",
     marginTop: 1,
-    backgroundColor: "#101010",
+    backgroundColor: "#141414",
   },
   title: { text: "" },
   plotOptions: {

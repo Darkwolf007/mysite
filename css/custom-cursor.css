@@ -1,29 +1,41 @@
-/* Define a custom cursor */
-.custom-cursor {
-	width: 20px;
-	height: 20px;
-	border-radius: 50%;
-	border: 2px solid #fff;
-	position: absolute;
-	z-index: 999;
-	pointer-events: none;
-	transition: all 0.2s ease-in-out;
-	transform: translate(-50%, -50%);
-	opacity: 0;
+/* Circle cursor that inverts whatever it passes over (mix-blend-mode),
+   matching the reference site. Only enabled where a precise pointer
+   (mouse/trackpad) is present — touch devices keep their native behavior. */
+@media (pointer: fine) {
+  html.has-custom-cursor,
+  html.has-custom-cursor a,
+  html.has-custom-cursor button,
+  html.has-custom-cursor .nav-link,
+  html.has-custom-cursor .portfolio-item,
+  html.has-custom-cursor .filter-link {
+    cursor: none;
   }
-  
-  /* Enlarge the cursor on hover */
-  .custom-cursor:hover {
-	width: 40px;
-	height: 40px;
-	border-width: 3px;
+
+  .cursor-circle {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 33px;
+    height: 33px;
+    margin: -16.5px 0 0 -16.5px;
+    border-radius: 50%;
+    background-color: #fff;
+    mix-blend-mode: difference;
+    pointer-events: none;
+    z-index: 100000;
+    opacity: 0;
+    transition: width .2s ease-out, height .2s ease-out,
+      margin .2s ease-out, opacity .2s ease-out;
+    will-change: transform;
   }
-  
-  /* Apply the custom cursor to the element */
-  .nav-item {
-	position: relative;
+
+  .cursor-circle.is-active {
+    opacity: 1;
   }
-  
-  .nav-item:hover .custom-cursor {
-	opacity: 1;
+
+  .cursor-circle.is-hovering {
+    width: 84px;
+    height: 84px;
+    margin: -42px 0 0 -42px;
   }
+}

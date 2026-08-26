@@ -29,9 +29,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="viewport"
     content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
-  <!-- background-->
-  <link rel="stylesheet" type="text/css" href="css/bgmouse.css">
-  <script src="//static.fliphtml5.com/web/js/plugin/LightBox/js/fliphtml5-light-box-api-min.js"></script>
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZFWV820W39"></script>
@@ -41,35 +38,9 @@
     gtag('js', new Date());
 
     gtag('config', 'G-ZFWV820W39');
-  </script>
-
-
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QWGZ4SYVGP"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-
     gtag('config', 'G-QWGZ4SYVGP');
   </script>
 
-
-
-  <script src="https://code.highcharts.com/highcharts.js"></script>
-  <script src="https://code.highcharts.com/modules/networkgraph.js"></script>
-  <script src="https://code.highcharts.com/modules/accessibility.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"
-    integrity="sha512-N4kV7GkNv7QR7RX9YF/olywyIgIwNvfEe2nZtfyj73HdjCUkAfOBDbcuJ/cTaN04JKRnw1YG1wnUyNKMsNgg3g=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/addons/p5.dom.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.11/addons/p5.sound.min.js"></script>
-  <script src="js/bgmouse.js"></script>
-  <script src="js/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
-    crossorigin="anonymous"></script>
-  <script src="https://www.w3schools.com/lib/w3.js"></script>
   <!-- Favicons-->
   <link rel="apple-touch-icon" sizes="180x180" href="img/favicons/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="img/favicons/favicon-32x32.png">
@@ -77,27 +48,39 @@
   <!-- Web fonts-->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!--  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet"> -->
+  <link href="https://fonts.googleapis.com/css2?family=Funnel+Sans:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <!-- Connections used by deferred scripts below, opened early -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://code.highcharts.com">
+  <link rel="preconnect" href="https://res.cloudinary.com">
   <!-- CSS vendors-->
-  <!-- <link rel="stylesheet" href="css/bootstrap-custom.css"> -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
     integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
   <link rel="stylesheet" href="css/ionicons.min.css">
   <link rel="stylesheet" href="css/tiny-slider.css">
   <link rel="stylesheet" href="css/lity.min.css">
   <link rel="stylesheet" href="css/simplebar.min.css">
-  <link rel="stylesheet" href="css/jquery.mb.YTPlayer.min.css">
   <link rel="hover" href="css/hover.css">
+  <link rel="stylesheet" href="css/custom-cursor.css">
   <!-- Main CSS-->
   <link rel="stylesheet" href="css/main.css">
   <!-- CSS Color scheme-->
   <link id="color-scheme" rel="stylesheet" href="css/colors/main-pink.css">
-  <!-- removeIf(customizerDist)-->
-  <link rel="stylesheet" href="../customizer/main.css">
-  <!-- endremoveIf(customizerDist)-->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <!-- Custom CSS (Add your custom CSS styles to this file)-->
   <link rel="stylesheet" href="css/custom.css">
+
+  <!-- Heavy libraries: deferred so they never block first paint -->
+  <script src="js/jquery.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"
+    defer></script>
+  <script src="https://code.highcharts.com/highcharts.js" defer></script>
+  <script src="https://code.highcharts.com/modules/networkgraph.js" defer></script>
+  <script src="https://code.highcharts.com/modules/accessibility.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"
+    integrity="sha512-N4kV7GkNv7QR7RX9YF/olywyIgIwNvfEe2nZtfyj73HdjCUkAfOBDbcuJ/cTaN04JKRnw1YG1wnUyNKMsNgg3g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
 </head>
 
 <body class="theme-dark">
@@ -136,6 +119,9 @@
         </li>
       </ul>
     </div>
+    <!-- Mirrors the logo's footprint so the centered nav sits at the true
+         midpoint of the bar, and the left/right outer gaps end up equal. -->
+    <span class="navbar-spacer" aria-hidden="true"></span>
   </nav>
   <!-- Home-->
   <!-- https://codepen.io/clementGir/pen/RQqvQx -->
@@ -213,7 +199,7 @@
               <div class="col-12">
                 <div class="section-heading page-heading">
 
-                  <h2 class="section-title">About Me</h2>
+                  <h2 class="section-title">about me</h2>
                   <div class="animated-bar"></div>
                 </div>
               </div>
@@ -495,7 +481,7 @@
               <div class="col-12">
                 <div class="section-heading page-heading">
                   <p class="section-description"></p>
-                  <h2 class="section-title">My Skills</h2>
+                  <h2 class="section-title">my skills</h2>
                   <div class="animated-bar"></div>
                 </div>
               </div>
@@ -507,10 +493,9 @@
                   <div class="section-heading">
 
                     <!-- <h2 class="section-title">My Skills</h2> -->
-                    <h3 style="color:#c93e70; font-size:14px; margin-top: 10px ">Hover & interact with my skills</h3>
                   </div>
                   <div id="graphskill"></div>
-                  <script src="js/graph.js"></script>
+                  <script src="js/graph.js" defer></script>
                 </div>
               </div>
             </div>
@@ -541,7 +526,7 @@
               <div class="col-12">
                 <div class="section-heading page-heading">
                   <p class="section-description"></p>
-                  <h2 class="section-title">Works</h2>
+                  <h2 class="section-title">selected works</h2>
                   <div class="animated-bar"></div>
                 </div>
               </div>
@@ -565,12 +550,811 @@
                 </div>
               </div>
               <!-- Thumbnail list-->
-              <div id="ProjectList" w3-include-html="html/projects.html"></div>
+              <div class="portfolio-grid row">
+
+
+
+                <!-- Pentaura-->
+                <div class="single-item filter-item col-6 col-lg-4 fabri computation">
+                  <a class="portfolio-item" data-toggle="modal" data-target="#project19">
+                    <div class="portfolio-wrapper"><img class="img-fluid" alt="Item" loading="lazy"
+                        data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_500,q_auto,f_auto/v1701616411/front/pentaura_gt0i7m.jpg">
+                      <div class="item-content">
+                        <h6 class="content-title">Folded Shell</h6><span class="content-more">More Info</span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+                <!-- Shingles-->
+                <div class="single-item filter-item col-6 col-lg-4 fabri computation">
+                  <a class="portfolio-item" data-toggle="modal" data-target="#project20">
+                    <div class="portfolio-wrapper"><img class="img-fluid" alt="Item" loading="lazy"
+                        data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_500,q_auto,f_auto/v1701626133/front/image45_1_tqhcym.jpg">
+                      <div class="item-content">
+                        <h6 class="content-title">Self-strutted Shell</h6><span class="content-more">More Info</span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+                <!-- branched-->
+                <div class="single-item filter-item col-6 col-lg-4 fabri computation">
+                  <a class="portfolio-item" data-toggle="modal" data-target="#project21">
+                    <div class="portfolio-wrapper"><img class="img-fluid" alt="Item" loading="lazy"
+                        data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_500,q_auto,f_auto/v1705741040/new_dbssmi.png">
+                      <div class="item-content">
+                        <h6 class="content-title">Branched Strip</h6><span class="content-more">More Info</span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+                <!-- CHebyshevgridshell-->
+                <div class="single-item filter-item col-6 col-lg-4 computation">
+                  <a class="portfolio-item" data-toggle="modal" data-target="#project11">
+                    <div class="portfolio-wrapper"><img class="img-fluid" alt="Item" loading="lazy"
+                        data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_500,q_auto,f_auto/v1680421045/newfinal1_jhrpim.png">
+                      <div class="item-content">
+                        <h6 class="content-title">Chebyshev gridshell</h6><span class="content-more">More Info</span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+                <!-- pointcloud_AI-->
+                <div class="single-item filter-item col-6 col-lg-4 research reality">
+                  <a class="portfolio-item" data-toggle="modal" data-target="#project12">
+                    <div class="portfolio-wrapper"> <img class="img-fluid" alt="Item" loading="lazy"
+                        data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_500,q_auto,f_auto/v1680457322/files/AI/iucon_c4cpja.png">
+                      <div class="item-content">
+                        <h6 class="content-title">Synthetic Data generation</h6><span class="content-more">More
+                          Info</span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+                <!-- Build with speed-->
+                <div class="single-item filter-item col-6 col-lg-4 competition computation urban">
+                  <a class="portfolio-item" data-toggle="modal" data-target="#project2">
+                    <div class="portfolio-wrapper"> <img class="img-fluid" alt="Item" loading="lazy"
+                        data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_500,q_auto,f_auto/v1655902982/front/a_2_ll9pam.png">
+                      <div class="item-content">
+                        <h6 class="content-title">Built with speed</h6><span class="content-more">More Info</span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+                <!-- SD_interior-->
+                <div class="single-item filter-item col-6 col-lg-4 research">
+                  <a class="portfolio-item" data-toggle="modal" data-target="#project14">
+                    <div class="portfolio-wrapper">
+                      <img class="img-fluid" alt="Item" loading="lazy"
+                        data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_500,q_auto,f_auto/v1680493436/files/AI/snapshot_qemqk6.jpg">
+                      <img class="video-play" alt="Item" loading="lazy"
+                        data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_500,q_auto,f_auto/v1680493798/files/AI/ezgif-2-a4996ea761_inhnhc.gif">
+                      <div class="item-content">
+                        <h6 class="content-title">AI renderer</h6><span class="content-more">More Info</span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+                <!-- network-->
+                <div class="single-item filter-item col-6 col-lg-4 computation">
+                  <a class="portfolio-item" data-toggle="modal" data-target="#project13">
+                    <div class="portfolio-wrapper">
+                      <img class="img-fluid" alt="Item" loading="lazy"
+                        data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_500,q_auto,f_auto/v1680459323/files/network/Screenshot_2023-04-02_234501_vdibmk.png">
+                      <img class="video-play" alt="Item" loading="lazy"
+                        data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_500,q_auto,f_auto/v1680459336/files/network/fluffy10_wsstkj.gif">
+                      <div class="item-content">
+                        <h6 class="content-title">3D print joinery</h6><span class="content-more">More Info</span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+                <!-- origami-->
+                <div class="single-item filter-item col-6 col-lg-4 fabri computation">
+                  <a class="portfolio-item" data-toggle="modal" data-target="#project15">
+                    <div class="portfolio-wrapper">
+                      <img class="img-fluid" alt="Item" loading="lazy"
+                        data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_500,q_auto,f_auto/v1680502935/files/AI/sss_higoc6.gif">
+
+                      <div class="item-content">
+                        <h6 class="content-title">Origami opening</h6><span class="content-more">More Info</span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+
+                <!-- Hebbal-->
+                <div class="single-item filter-item col-6 col-lg-4 competition urban">
+                  <a class="portfolio-item" data-toggle="modal" data-target="#project1">
+                    <div class="portfolio-wrapper">
+                      <img class="img-fluid" alt="Item" loading="lazy"
+                        data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_500,q_auto,f_auto/v1655902981/front/a_3_xph0cy.png">
+                      <div class="item-content">
+                        <h6 class="content-title">Feeder system</h6><span class="content-more">More Info</span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+
+                <!-- webvr-->
+                <div class="single-item filter-item col-6 col-lg-4 reality archi">
+                  <a class="portfolio-item" data-toggle="modal" data-target="#project16">
+                    <div class="portfolio-wrapper"><img class="img-fluid" alt="Item" loading="lazy"
+                        data-src="https://cdnb.artstation.com/p/assets/images/images/056/526/735/large/shylesh-kumar-a1-1.jpg?1669472208">
+                      <div class="item-content">
+                        <h6 class="content-title">interior WebVR </h6><span class="content-more">More Info</span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+                <!-- Installations-->
+                <div class="single-item filter-item col-6 col-lg-4 fabri computation">
+                  <a class="portfolio-item" data-toggle="modal" data-target="#project17">
+                    <div class="portfolio-wrapper"><img class="img-fluid" alt="Item" loading="lazy"
+                        data-src="https://cdnb.artstation.com/p/assets/images/images/057/503/617/large/shylesh-kumar-samples-1.jpg?1671762845">
+                      <div class="item-content">
+                        <h6 class="content-title">Installations</h6><span class="content-more">More Info</span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+                <!-- toyoito-->
+                <div class="single-item filter-item col-6 col-lg-4 computation">
+                  <a class="portfolio-item" data-toggle="modal" data-target="#project18">
+                    <div class="portfolio-wrapper"><img class="img-fluid" alt="Item" loading="lazy"
+                        data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_crop,h_600,x_0,y_242/q_auto,f_auto/v1681783236/files/toyo/sdsd_wlwqw3.jpg">
+                      <div class="item-content">
+                        <h6 class="content-title">Twisted pavilion</h6><span class="content-more">More Info</span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+                <!-- urbandesign-->
+                <div class="single-item filter-item col-6 col-lg-4 urban">
+                  <a class="portfolio-item" data-toggle="modal" data-target="#project4">
+                    <div class="portfolio-wrapper"><img class="img-fluid" alt="Item" loading="lazy"
+                        data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_500,q_auto,f_auto/v1657566827/front/a_5_ah4cs6.png">
+                      <div class="item-content">
+                        <h6 class="content-title">Railway precinct developement</h6><span class="content-more">More
+                          Info</span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+
+                <!-- mixeduse-->
+                <div class="single-item filter-item col-6 col-lg-4 archi urban">
+                  <a class="portfolio-item" data-toggle="modal" data-target="#project5">
+                    <div class="portfolio-wrapper"><img class="img-fluid" alt="Item" loading="lazy"
+                        data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_500,q_auto,f_auto/v1655902981/front/a_4_okbn4b.jpg">
+                      <div class="item-content">
+                        <h6 class="content-title">Mixed use housing</h6><span class="content-more">More Info</span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <!-- temple-->
+                <div class="single-item filter-item col-6 col-lg-4 urban competition">
+                  <a class="portfolio-item" data-toggle="modal" data-target="#project6">
+                    <div class="portfolio-wrapper"><img class="img-fluid" alt="Item" loading="lazy"
+                        data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_500,q_auto,f_auto/v1655902981/front/a_1_ggbfta.png">
+                      <div class="item-content">
+                        <h6 class="content-title">Urban Ecopoesis</h6><span class="content-more">More Info</span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <!-- swarm gig-->
+                <div class="single-item filter-item col-6 col-lg-4 computation">
+                  <a class="portfolio-item" data-toggle="modal" data-target="#project7">
+                    <div class="portfolio-wrapper"><img class="img-fluid" alt="Item" loading="lazy"
+                        data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_500,q_auto,f_auto/v1655902981/front/a_1_ryesbt.jpg">
+                      <div class="item-content">
+                        <h6 class="content-title">Agent swarm</h6><span class="content-more">More Info</span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+                <!-- AK block-->
+                <div class="single-item filter-item col-6 col-lg-4 computation archi">
+                  <a class="portfolio-item" data-toggle="modal" data-target="#project8">
+                    <div class="portfolio-wrapper"><img class="img-fluid" alt="Item" loading="lazy"
+                        data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_500,q_auto,f_auto/v1655902981/front/a_3_beqtym.jpg">
+                      <div class="item-content">
+                        <h6 class="content-title">AK Block Apartment</h6><span class="content-more">More Info</span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+                <!-- Starwar-->
+                <div class="single-item filter-item col-6 col-lg-4 creative">
+                  <a class="portfolio-item" data-toggle="modal" data-target="#project9">
+                    <div class="portfolio-wrapper"><img class="img-fluid" alt="Item" loading="lazy"
+                        data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_500,q_auto,f_auto/v1657569107/front/a9_vyxexa.png">
+                      <div class="item-content">
+                        <h6 class="content-title">Starwars</h6><span class="content-more">More Info</span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+                <!-- dalle1-->
+                <div class="single-item filter-item col-6 col-lg-4 research creative">
+                  <a class="portfolio-item" data-toggle="modal" data-target="#project10">
+                    <div class="portfolio-wrapper">
+                      <img class="img-fluid" alt="Item" loading="lazy"
+                        data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_500,q_auto,f_auto/v1657576802/front/1_1_grut6w.jpg">
+                      <img class="video-play" alt="Item" loading="lazy"
+                        data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_500,q_auto,f_auto/v1657571543/front/dallegif_y3eyyp.gif">
+                      <div class="item-content">
+                        <h6 class="content-title">Story of buildings</h6><span class="content-more">More Info</span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+
+
+                <!-- idc-->
+                <div class="single-item filter-item col-6 col-lg-4 urban competition">
+                  <a class="portfolio-item" data-toggle="modal" data-target="#project3">
+                    <div class="portfolio-wrapper">
+                      <img class="img-fluid" alt="Item" loading="lazy"
+                        data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_500,q_auto,f_auto/v1655902981/front/a_2_k7witz.jpg">
+                      <div class="item-content">
+                        <h6 class="content-title">IDC</h6><span class="content-more">More Info</span>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+
+
+
+              <!-- Modal -->
+
+
+              <!-- hebbal -->
+              <div class="modal fade" id="project1" aria-labelledby="academic" aria-hidden="true">
+                <div class="modal-dialog modal-xl modal-dialog-scrollable">
+                  <div class="modal-content bg-gradient-dark">
+                    <div class="modal-body">
+                      <img class="img-fluid" alt="Item" loading="lazy"
+                        data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_1400,q_auto,f_auto/v1657566155/files/hebls1_l3wp1z.jpg">
+                      <div class="card-body">
+                        <!--  <h5 class="card-title text-dark">Card title</h5>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                        additional content.
+                        This content is a little bit longer.</p>
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                      </div>
+                      <img class="img-fluid" alt="Item" loading="lazy"
+                        data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_1400,q_auto,f_auto/v1657566155/files/hebls2_stz1pd.jpg">
+                      <div class="card-body">
+                        <!-- <h5 class="card-title text-dark">Card title</h5>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                        additional content.
+                        This content is a little bit longer.</p>
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                      </div>
+                    </div>
+
+                  </div>
+                  <button type="button" class="close mx-auto" data-dismiss="modal" aria-label="Close">
+                    <i class="icon ion-md-close-circle"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- buildwithspeed -->
+            <div class="modal fade" id="project2" aria-labelledby="academic" aria-hidden="true">
+              <div class="modal-dialog modal-xl modal-dialog-scrollable">
+                <div class="modal-content bg-gradient-dark">
+                  <div class="modal-body">
+                    <img class="img-fluid" alt="Item" loading="lazy"
+                      data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_1400,q_auto,f_auto/v1657566942/files/bws_s1_bkhphc.jpg">
+                    <!-- <div class="card-body">
+                    <h5 class="card-title text-dark">Card title</h5>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                        additional content.
+                        This content is a little bit longer.</p>
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                </div> -->
+                    <img class="img-fluid" alt="Item" loading="lazy"
+                      data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_1400,q_auto,f_auto/v1657566947/files/bws_s2_bg2etw.jpg">
+                    <!--  <div class="card-body">
+                    <h5 class="card-title text-dark">Card title</h5>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                        additional content.
+                        This content is a little bit longer.</p>
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                </div> -->
+                  </div>
+
+                </div>
+                <button type="button" class="close mx-auto" data-dismiss="modal" aria-label="Close">
+                  <i class="icon ion-md-close-circle"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- idc -->
+          <div class="modal fade" id="project3" aria-labelledby="academic" aria-hidden="true">
+            <div class="modal-dialog modal-xl modal-dialog-scrollable">
+              <div class="modal-content bg-gradient-dark">
+                <div class="modal-body">
+                  <img class="img-fluid" alt="Item" loading="lazy"
+                    data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_1400,q_auto,f_auto/v1657567212/files/idc_s1_w74jj5.jpg">
+                  <img class="img-fluid" alt="Item" loading="lazy"
+                    data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_1400,q_auto,f_auto/v1657567212/files/idc_s2_mivf0h.jpg">
+                  <img class="img-fluid" alt="Item" loading="lazy"
+                    data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_1400,q_auto,f_auto/v1657567212/files/idc_s3_hpuchl.jpg">
+                </div>
+
+              </div>
+              <button type="button" class="close mx-auto" data-dismiss="modal" aria-label="Close">
+                <i class="icon ion-md-close-circle"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- urban design -->
+        <div class="modal fade" id="project4" aria-labelledby="academic" aria-hidden="true">
+          <div class="modal-dialog modal-xl modal-dialog-scrollable">
+            <div class="modal-content bg-gradient-dark">
+              <div class="modal-body">
+                <img class="img-fluid" alt="Item" loading="lazy"
+                  data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_1400,q_auto,f_auto/v1657569462/files/ud2_epxraf.jpg">
+                <!-- <div class="card-body">
+                    <h5 class="card-title text-dark">Card title</h5>
+                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
+                        additional content.
+                        This content is a little bit longer.</p>
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                </div> -->
+                <img class="img-fluid" alt="Item" loading="lazy"
+                  data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_1400,q_auto,f_auto/v1657569464/files/ud3_kw7bou.jpg">
+
+                <img class="img-fluid" alt="Item" loading="lazy"
+                  data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_1400,q_auto,f_auto/v1657569462/files/ud4_jvue1u.jpg">
+              </div>
+              <button type="button" class="close mx-auto" data-dismiss="modal" aria-label="Close">
+                <i class="icon ion-md-close-circle"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mixed housing -->
+        <div class="modal fade" id="project5" aria-labelledby="academic" aria-hidden="true">
+          <div class="modal-dialog modal-xl modal-dialog-scrollable">
+            <div class="modal-content bg-gradient-dark">
+              <div class="modal-body">
+                <img class="img-fluid" alt="Item" loading="lazy"
+                  data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_1400,q_auto,f_auto/v1657569459/files/housing1_zezjks.jpg">
+                <img class="img-fluid" alt="Item" loading="lazy"
+                  data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_1400,q_auto,f_auto/v1657569459/files/housing2_qrrc5a.jpg">
+                <img class="img-fluid" alt="Item" loading="lazy"
+                  data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_1400,q_auto,f_auto/v1657569459/files/housing3_edmbph.jpg">
+                <img class="img-fluid" alt="Item" loading="lazy"
+                  data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_1400,q_auto,f_auto/v1657569460/files/housing4_rrgrtz.jpg">
+                <img class="img-fluid" alt="Item" loading="lazy"
+                  data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_1400,q_auto,f_auto/v1657569459/files/housing5_mnnzvf.jpg">
+                <img class="img-fluid" alt="Item" loading="lazy"
+                  data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_1400,q_auto,f_auto/v1657569461/files/housing7_j9o5ke.jpg">
+
+              </div>
+              <button type="button" class="close mx-auto" data-dismiss="modal" aria-label="Close">
+                <i class="icon ion-md-close-circle"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Temple -->
+        <div class="modal fade" id="project6" aria-labelledby="academic" aria-hidden="true">
+          <div class="modal-dialog modal-xl modal-dialog-scrollable">
+            <div class="modal-content bg-gradient-dark">
+              <div class="modal-body">
+                <img class="img-fluid" alt="Item" loading="lazy" data-src="img/works/competition/temp_s1.jpg">
+                <img class="img-fluid" alt="Item" loading="lazy" data-src="img/works/competition/temp_s2.jpg">
+                <img class="img-fluid" alt="Item" loading="lazy" data-src="img/works/competition/temp_s3.jpg">
+              </div>
+              <button type="button" class="close mx-auto" data-dismiss="modal" aria-label="Close">
+                <i class="icon ion-md-close-circle"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- swarm -->
+        <div class="modal fade" id="project7" aria-labelledby="academic" aria-hidden="true">
+          <div class="modal-dialog modal-xl modal-dialog-scrollable">
+            <div class="modal-content bg-gradient-dark">
+              <div class="modal-body">
+                <img class="img-fluid" alt="Item" loading="lazy"
+                  data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_1400,q_auto,f_auto/v1657569665/files/agent_f1vcyq.jpg">
+              </div>
+              <button type="button" class="close mx-auto" data-dismiss="modal" aria-label="Close">
+                <i class="icon ion-md-close-circle"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- apartment -->
+        <div class="modal fade" id="project8" aria-labelledby="academic" aria-hidden="true">
+          <div class="modal-dialog modal-xl modal-dialog-scrollable">
+            <div class="modal-content bg-gradient-dark">
+              <div class="modal-body">
+                <img class="img-fluid" alt="Item" loading="lazy"
+                  data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_1400,q_auto,f_auto/v1680441336/files/akbloc_po92yf_1_zh8rk7.jpg">
+              </div>
+              <button type="button" class="close mx-auto" data-dismiss="modal" aria-label="Close">
+                <i class="icon ion-md-close-circle"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- starwar -->
+        <div class="modal fade" id="project9" aria-labelledby="academic" aria-hidden="true">
+          <div class="modal-dialog modal-xl modal-dialog-scrollable">
+            <div class="modal-content bg-gradient-dark">
+              <div class="modal-body">
+                <iframe data-src="https://openprocessing.org/sketch/812719/embed/" width=100% height="400"></iframe>
+                <iframe data-src="https://openprocessing.org/sketch/812716/embed/" width=100% height="400"></iframe>
+                <iframe data-src="https://openprocessing.org/sketch/812722/embed/" width=100% height="400"></iframe>
+              </div>
+              <button type="button" class="close mx-auto" data-dismiss="modal" aria-label="Close">
+                <i class="icon ion-md-close-circle"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- dalle -->
+        <div class="modal fade" id="project10" aria-labelledby="academic" aria-hidden="true">
+          <div class="modal-dialog modal-xl modal-dialog-scrollable">
+            <div class="modal-content bg-gradient-dark">
+              <div class="modal-body">
+
+                <img class="img-fluid" alt="Item" loading="lazy"
+                  data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_1400,q_auto,f_auto/v1657578147/files/My_project_qsqdby.jpg">
+                <video class="img-fluid" width="800" height="240" controls>
+                  <source
+                    data-src="https://res.cloudinary.com/duufhvbhi/video/upload/c_scale,w_1400,q_auto,f_auto/v1657578678/files/inter_tfabmk.mp4"
+                    type="video/mp4">
+              </div>
+              <button type="button" class="close mx-auto" data-dismiss="modal" aria-label="Close">
+                <i class="icon ion-md-close-circle"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chebyshev -->
+        <div class="modal fade" id="project11" aria-labelledby="computation architecture" aria-hidden="true">
+          <div class="modal-dialog modal-xl modal-dialog-scrollable">
+            <div class="modal-content bg-gradient-dark">
+
+
+              <div class="modal-body">
+                <img class="img-fluid" alt="Item1"
+                  data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_1400,q_auto,f_auto/v1680451285/files/gridshell/12_1_xkzj9v.jpg">
+                <img class="img-fluid" alt="Item1"
+                  data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_1400,q_auto,f_auto/v1680451284/files/gridshell/12_12_wsz6rr.jpg">
+                <img class="img-fluid" alt="Item1"
+                  data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_1400,q_auto,f_auto/v1680451285/files/gridshell/12_13_vc2nzz.jpg">
+                <div class="card-body">
+
+                  <p class="card-text text-dark">V4, V5 and V 6 are rejected as the deflection of the mesh is higher
+                    than permissible deflection of 10.2cm
+
+                    V 2 is rejected because is has the lowest advantatges compared to hannover metrics
+
+                    V 3 is rejected because highest quantities
+
+                    Variant 1 is selected as the final mesh.</p>
+
+                </div>
+
+                <img class="img-fluid" alt="Item1"
+                  data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_1400,q_auto,f_auto/v1680451286/files/gridshell/12_14_tfu1z4.jpg">
+
+              </div>
+
+
+
+
+
+              <button type="button" class="close mx-auto" data-dismiss="modal" aria-label="Close">
+                <i class="icon ion-md-close-circle"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- pointCloud -->
+        <div class="modal fade" id="project12" aria-labelledby="academic" aria-hidden="true">
+          <div class="modal-dialog modal-xl modal-dialog-scrollable">
+            <div class="modal-content bg-gradient-dark">
+              <div class="modal-body">
+                <p class="card-text text-dark">This research was induced by my interest to explore advantages of machine
+                  vision in architecture. But lack of dataset, prompted me to use parametric tools in synthesising
+                  artifical dataset.</p>
+                <img class="img-fluid" alt="Item" loading="lazy"
+                  data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_1400,q_auto,f_auto/v1680456680/files/AI/18_dzbu0n.jpg">
+              </div>
+              <button type="button" class="close mx-auto" data-dismiss="modal" aria-label="Close">
+                <i class="icon ion-md-close-circle"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- network -->
+        <div class="modal fade" id="project13" aria-labelledby="academic" aria-hidden="true">
+          <div class="modal-dialog modal-xl modal-dialog-scrollable">
+            <div class="modal-content bg-gradient-dark">
+              <div class="modal-body">
+                <p class="card-text text-dark">This research was induced by my interest to explore advantages of machine
+                  vision in architecture. But lack of dataset, prompted me to use parametric tools in synthesising
+                  artifical dataset.</p>
+
+                <img class="img-fluid" alt="Item" loading="lazy"
+                  data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_1400,q_auto,f_auto/v1680458809/files/network/13_pbq37x.jpg">
+                <img class="img-fluid" alt="Item" loading="lazy"
+                  data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_1400,q_auto,f_auto/v1680459765/files/network/ezgif-5-8a7eb2acbb_dfsn96.gif">
+                <img class="img-fluid" alt="Item" loading="lazy"
+                  data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_1400,q_auto,f_auto/v1680458809/files/network/132_unagt6.jpg">
+
+              </div>
+              <button type="button" class="close mx-auto" data-dismiss="modal" aria-label="Close">
+                <i class="icon ion-md-close-circle"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- SD interior -->
+        <div class="modal fade" id="project14" aria-labelledby="academic" aria-hidden="true">
+          <div class="modal-dialog modal-xl modal-dialog-scrollable">
+            <div class="modal-content bg-gradient-dark">
+              <div class="modal-body">
+                <p class="card-text text-dark">This research was induced by my interest to explore advantages of machine
+                  vision in architecture. But lack of dataset, prompted me to use parametric tools in synthesising
+                  artifical dataset.</p>
+
+                <img class="img-fluid" alt="Item" loading="lazy"
+                  data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_1400,q_auto,f_auto/v1680491496/files/AI/22_zmhcoq.jpg">
+
+              </div>
+              <button type="button" class="close mx-auto" data-dismiss="modal" aria-label="Close">
+                <i class="icon ion-md-close-circle"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- origami -->
+        <div class="modal fade" id="project15" aria-labelledby="academic" aria-hidden="true">
+          <div class="modal-dialog modal-xl modal-dialog-scrollable">
+            <div class="modal-content bg-gradient-dark">
+              <div class="modal-body">
+                <!-- <p class="card-text text-dark">This research was induced by my interest to explore advantages of machine vision in architecture. But lack of dataset, prompted me to use parametric tools in synthesising artifical dataset.</p> -->
+
+                <img class="img-fluid" alt="Item" loading="lazy"
+                  data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_1400,q_auto,f_auto/v1680499992/files/AI/23_etezgs.jpg">
+
+              </div>
+              <button type="button" class="close mx-auto" data-dismiss="modal" aria-label="Close">
+                <i class="icon ion-md-close-circle"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- webvr -->
+        <div class="modal fade" id="project16" aria-labelledby="academic" aria-hidden="true">
+          <div class="modal-dialog modal-xl modal-dialog-scrollable">
+            <div class="modal-content bg-gradient-dark">
+              <div class="modal-body">
+                <p class="card-text text-dark">
+                  <a href="https://xbuild-apartment.netlify.app/">Explore the example1</a>
+                </p>
+                <p class="card-text text-dark">
+                  <a href="https://xbuild.gitlab.io/vr-walkthrough2/">Explore the example2</a>
+                </p>
+
+                <img class="img-fluid" alt="Item" loading="lazy"
+                  data-src="https://cdnb.artstation.com/p/assets/images/images/056/526/737/large/shylesh-kumar-a1-3.jpg?1669472214">
+                <img class="img-fluid" alt="Item" loading="lazy"
+                  data-src="https://cdna.artstation.com/p/assets/images/images/056/526/738/large/shylesh-kumar-a1-4.jpg?1669472217">
+                <img class="img-fluid" alt="Item" loading="lazy"
+                  data-src="https://cdna.artstation.com/p/assets/images/images/056/526/736/large/shylesh-kumar-a1-2.jpg?1669472211">
+                <img class="img-fluid" alt="Item" loading="lazy"
+                  data-src="https://cdnb.artstation.com/p/assets/images/images/056/519/409/large/shylesh-kumar-a2.jpg?1669450390">
+                <img class="img-fluid" alt="Item" loading="lazy"
+                  data-src="https://cdna.artstation.com/p/assets/images/images/056/519/410/large/shylesh-kumar-a1.jpg?1669450397">
+              </div>
+              <button type="button" class="close mx-auto" data-dismiss="modal" aria-label="Close">
+                <i class="icon ion-md-close-circle"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- installation -->
+        <div class="modal fade" id="project17" aria-labelledby="academic" aria-hidden="true">
+          <div class="modal-dialog modal-xl modal-dialog-scrollable">
+            <div class="modal-content bg-gradient-dark">
+              <div class="modal-body">
+                <p class="card-text text-dark">
+                  Explore the link </p>
+
+                <img class="img-fluid" alt="Item" loading="lazy"
+                  data-src="https://cdnb.artstation.com/p/assets/images/images/057/503/619/large/shylesh-kumar-samples-2.jpg?1671762849">
+                <img class="img-fluid" alt="Item" loading="lazy"
+                  data-src="https://cdnb.artstation.com/p/assets/images/images/057/503/623/large/shylesh-kumar-samples-3.jpg?1671762854">
+                <img class="img-fluid" alt="Item" loading="lazy"
+                  data-src="https://cdna.artstation.com/p/assets/images/images/057/503/630/large/shylesh-kumar-samples-4.jpg?1671762871">
+                <img class="img-fluid" alt="Item" loading="lazy"
+                  data-src="https://cdna.artstation.com/p/assets/images/images/057/503/614/large/shylesh-kumar-samples-5.jpg?1671762833">
+
+              </div>
+              <button type="button" class="close mx-auto" data-dismiss="modal" aria-label="Close">
+                <i class="icon ion-md-close-circle"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- toyoito -->
+        <div class="modal fade" id="project18" aria-labelledby="computation" aria-hidden="true">
+          <div class="modal-dialog modal-xl modal-dialog-scrollable">
+            <div class="modal-content bg-gradient-dark">
+              <div class="modal-body">
+                <p class="card-text text-dark"> </p>
+
+                <img class="img-fluid" alt="Item" loading="lazy"
+                  data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_1400,q_auto,f_auto/v1681782726/files/toyo/1_go5gsp.jpg">
+                <img class="img-fluid" alt="Item" loading="lazy"
+                  data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_1400,q_auto,f_auto/v1681782726/files/toyo/2_bux4ms.jpg">
+                <img class="img-fluid" alt="Item" loading="lazy"
+                  data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_1400,q_auto,f_auto/v1681782726/files/toyo/3_hq4vz8.jpg">
+                <img class="img-fluid" alt="Item" loading="lazy"
+                  data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_1400,q_auto,f_auto/v1681782726/files/toyo/4_usaqlw.jpg">
+                <img class="img-fluid" alt="Item" loading="lazy"
+                  data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_1400,q_auto,f_auto/v1681782726/files/toyo/5_uvhdfd.jpg">
+                <img class="img-fluid" alt="Item" loading="lazy"
+                  data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_1400,q_auto,f_auto/v1681782726/files/toyo/6_wluzvh.jpg">
+                <img class="img-fluid" alt="Item" loading="lazy"
+                  data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_1400,q_auto,f_auto/v1681782727/files/toyo/7_mgcfk4.jpg">
+                <img class="img-fluid" alt="Item" loading="lazy"
+                  data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_1400,q_auto,f_auto/v1681782727/files/toyo/8_abclu8.jpg">
+                <img class="img-fluid" alt="Item" loading="lazy"
+                  data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_1400,q_auto,f_auto/v1681782727/files/toyo/9_y7kf9z.jpg">
+                <img class="img-fluid" alt="Item" loading="lazy"
+                  data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_1400,q_auto,f_auto/v1681782727/files/toyo/10_hoys2s.jpg">
+              </div>
+              <button type="button" class="close mx-auto" data-dismiss="modal" aria-label="Close">
+                <i class="icon ion-md-close-circle"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- foldedshell -->
+        <div class="modal fade" id="project19" aria-labelledby="computation" aria-hidden="true">
+          <div class="modal-dialog modal-xl modal-dialog-scrollable">
+            <div class="modal-content bg-gradient-dark">
+              <div class="modal-body">
+                <p class="card-text text-dark">
+                  <a href="https://darkwolf007.github.io/pentaura/" style="font-size: 18px;">Explore the webVR</a>
+                </p>
+                <iframe width=100% height=50% data-src="https://www.youtube.com/embed/_2oZJoPOY7U?si=0PFKB5md4kPsaYwO"
+                  frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; "
+                  allowfullscreen></iframe>
+
+                <img class="img-fluid" alt="Item" loading="lazy"
+                  data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_1400,q_auto,f_auto/v1703193045/files/Folded%20shell/fold5_iadwql.jpg">
+                <img class="img-fluid" alt="Item" loading="lazy"
+                  data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_1400,q_auto,f_auto/v1703193045/files/Folded%20shell/fold6_astdto.jpg">
+                <img class="img-fluid" alt="Item" loading="lazy"
+                  data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_1400,q_auto,f_auto/v1703193045/files/Folded%20shell/fold7_it619c.jpg">
+                <img class="img-fluid" alt="Item" loading="lazy"
+                  data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_1400,q_auto,f_auto/v1703199689/files/Folded%20shell/final_pentaa1_2_rwtkvs.jpg">
+                <img class="img-fluid" alt="Item" loading="lazy"
+                  data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_1400,q_auto,f_auto/v1703199685/files/Folded%20shell/final_pentaa1_3_lbp0dh.jpg">
+                <img class="img-fluid" alt="Item" loading="lazy"
+                  data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_1400,q_auto,f_auto/v1703199679/files/Folded%20shell/final_pentaa1_1_olsvzc.jpg">
+
+              </div>
+              <button type="button" class="close mx-auto" data-dismiss="modal" aria-label="Close">
+                <i class="icon ion-md-close-circle"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- shingles -->
+        <div class="modal fade" id="project20" aria-labelledby="computation" aria-hidden="true">
+          <div class="modal-dialog modal-xl modal-dialog-scrollable">
+            <div class="modal-content bg-gradient-dark">
+              <div class="modal-body">
+                <p class="card-text text-dark">
+                  <a href="https://darkwolf007.github.io/Pentaura_3d_web/" style="font-size: 18px;">Explore the
+                    webVR</a>
+                </p>
+                <iframe data-src="https://player.vimeo.com/video/867826151?h=7b118c3567&title=0&byline=0&portrait=0"
+                  width="100%" height="50%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture"
+                  allowfullscreen></iframe>
+
+                <img class="img-fluid" alt="Item" loading="lazy"
+                  data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_1400,q_auto,f_auto/v1703202875/files/struttedshell/fold_xba40f.jpg">
+                <img class="img-fluid" alt="Item" loading="lazy"
+                  data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_1400,q_auto,f_auto/v1703202877/files/struttedshell/fold2_cyhi57.jpg">
+                <img class="img-fluid" alt="Item" loading="lazy"
+                  data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_1400,q_auto,f_auto/v1703202874/files/struttedshell/fold3_uf8z7q.jpg">
+                <img class="img-fluid" alt="Item" loading="lazy"
+                  data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_1400,q_auto,f_auto/v1703203907/files/struttedshell/a_1_amf17o.jpg">
+                <img class="img-fluid" alt="Item" loading="lazy"
+                  data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_1400,q_auto,f_auto/v1703203559/files/struttedshell/a_3_ei21f8.jpg">
+                <img class="img-fluid" alt="Item" loading="lazy"
+                  data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_1400,q_auto,f_auto/v1703203560/files/struttedshell/a_2_myag9n.jpg">
+
+              </div>
+              <button type="button" class="close mx-auto" data-dismiss="modal" aria-label="Close">
+                <i class="icon ion-md-close-circle"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- branched -->
+        <div class="modal fade" id="project21" aria-labelledby="computation" aria-hidden="true">
+          <div class="modal-dialog modal-xl modal-dialog-scrollable">
+            <div class="modal-content bg-gradient-dark">
+              <div class="modal-body">
+                <img class="img-fluid" alt="Item" loading="lazy"
+                  data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_1400,q_auto,f_auto/v1705782079/files/branched/branched_xtipgx.jpg">
+                <img class="img-fluid" alt="Item" loading="lazy"
+                  data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_1400,q_auto,f_auto/v1705782075/files/branched/branched2_bbgcyr.jpg">
+                <img class="img-fluid" alt="Item" loading="lazy"
+                  data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_1400,q_auto,f_auto/v1705782083/files/branched/branched3_k4qwpu.jpg">
+                <img class="img-fluid" alt="Item" loading="lazy"
+                  data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_1400,q_auto,f_auto/v1705782095/files/branched/branched4_o6vhoq.jpg">
+              </div>
+              <button type="button" class="close mx-auto" data-dismiss="modal" aria-label="Close">
+                <i class="icon ion-md-close-circle"></i>
+              </button>
             </div>
           </div>
         </div>
       </div>
     </div>
+  </div>
+  </div>
+  </div>
   </div>
   </div>
   </div>
@@ -597,126 +1381,209 @@
               </div>
             </div>
 
-            <div id="" w3-include-html="html/blog.html"></div>
-            <!-- Blog Post Section -->
+            <div class="blog-grid">
 
 
+              <!-- Blog Item 1 aaaa-->
+              <div class="blog-item">
+                <a href="https://parametric-architecture.com/pentaura-pavilion-utilizes-a-technique-influenced-by-gaudis-hanging-chain-models/"
+                  target="_blank">
+                  <img loading="lazy"
+                    data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_600,q_80,f_auto/v1705758654/files/blog/post1_q8cv6b.png"
+                    alt="Blog Image 1">
+                  <div class="blog-content">
+                    <h3>Pentaura Pavilion</h3>
+                    <p>Pentaura Pavilion utilizes a technique influenced by Gaudi’s hanging chain models</p>
+                  </div>
+                </a>
+              </div>
+
+              <!-- Blog Item 2 -->
+              <div class="blog-item">
+                <a href="https://vimeo.com/867826151" target="_blank">
+                  <img loading="lazy"
+                    data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_600,q_80,f_auto/v1705758661/files/blog/post6_eubox8.png"
+                    alt="Blog Image 1">
+                  <div class="blog-content">
+                    <h3>Shingles</h3>
+                    <p>Plydome inspired active bending panel on double curved surface</p>
+                  </div>
+                </a>
+              </div>
+
+              <!-- Blog Item 3 -->
+              <div class="blog-item">
+                <a href="https://parametric-architecture.com/8-parametric-and-innovative-pavilions-of-2023/"
+                  target="_blank">
+                  <img loading="lazy"
+                    data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_600,q_80,f_auto/v1705758657/files/blog/post3_qkl3jh.png"
+                    alt="Blog Image 1">
+                  <div class="blog-content">
+                    <h3>Pentaura Pavilion</h3>
+                    <p>8 parametric and innovation pavilion of 2023</p>
+                  </div>
+                </a>
+              </div>
+
+              <!-- Blog Item 4 -->
+              <div class="blog-item">
+                <a href="https://www.artigavarres.cat/artista.php?id=106" target="_blank">
+                  <img loading="lazy"
+                    data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_600,q_80,f_auto/v1705758659/files/blog/post5_uzaaki.png"
+                    alt="Blog Image 1">
+                  <div class="blog-content">
+                    <h3>Shingles</h3>
+                    <p>Art gavarres 2023 installations</p>
+                  </div>
+                </a>
+              </div>
+
+              <!-- Blog Item 5 -->
+              <div class="blog-item">
+                <a href="https://opencity.in/chennai-rains-and-waterlogging-datajam-jan-2024/" target="_blank">
+                  <img loading="lazy"
+                    data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_600,q_80,f_auto/v1705758663/files/blog/post7_gue71z.png"
+                    alt="Blog Image 1">
+                  <div class="blog-content">
+                    <h3>Opencity dataJam</h3>
+                    <p>Flood prone and vulnerable area in Chennai</p>
+                  </div>
+                </a>
+              </div>
+
+              <!-- Blog Item 6 -->
+              <div class="blog-item">
+                <a href="https://www.novatr.com/blog/interesting-trends-in-the-use-of-rhino-3d-in-the-indian-design-industry"
+                  target="_blank">
+                  <img loading="lazy"
+                    data-src="https://res.cloudinary.com/duufhvbhi/image/upload/c_scale,w_600,q_80,f_auto/v1705854619/files/blog/post8_yvzqd4.png"
+                    alt="Blog Image 1">
+                  <div class="blog-content">
+                    <h3>Pentaura Pavilion</h3>
+                    <p>Pentaura Pavilion utilizes a technique influenced by Gaudi’s hanging chain models</p>
+                  </div>
+                </a>
+              </div>
+              <!-- Blog Post Section -->
+
+
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
 
 
-  <!-- Contact lightbox-->
-  <div class="lightbox-wrapper" id="contact" data-simplebar>
-    <div class="container">
-      <div class="lightbox-close">
-        <div class="close-btn" data-modal-close="">
-          <span class="btn-line"></span>
+    <!-- Contact lightbox-->
+    <div class="lightbox-wrapper" id="contact" data-simplebar>
+      <div class="container">
+        <div class="lightbox-close">
+          <div class="close-btn" data-modal-close="">
+            <span class="btn-line"></span>
+          </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-12">
-          <div class="lightbox-content">
-            <div class="row">
-              <div class="col-12">
-                <div class="section-heading page-heading">
-                  <p class="section-description">Feel free to contact me anytimes</p>
-                  <h2 class="section-title">Get in Touch</h2>
-                  <div class="animated-bar"></div>
+        <div class="row">
+          <div class="col-12">
+            <div class="lightbox-content">
+              <div class="row">
+                <div class="col-12">
+                  <div class="section-heading page-heading">
+                    <p class="section-description">Feel free to contact me anytimes</p>
+                    <h2 class="section-title">Get in Touch</h2>
+                    <div class="animated-bar"></div>
+                  </div>
                 </div>
               </div>
-            </div>
-            <!-- Contact section-->
-            <div class="contact-section single-section">
-              <div class="row">
-                <!-- Contact form-->
-                <div class="col-12 col-lg-7">
-                  <form class="contact-form" id="contact-form"
-                    action="http://exill.dk/demo/kitzu/template/php/contact.php">
-                    <h4 class="content-title">Message Me</h4>
-                    <div class="row">
-                      <div class="col-12 col-md-6 form-group">
-                        <input class="form-control" id="contact-name" type="text" name="name" placeholder="Name"
-                          required="">
+              <!-- Contact section-->
+              <div class="contact-section single-section">
+                <div class="row">
+                  <!-- Contact form-->
+                  <div class="col-12 col-lg-7">
+                    <form class="contact-form" id="contact-form"
+                      action="http://exill.dk/demo/kitzu/template/php/contact.php">
+                      <h4 class="content-title">Message Me</h4>
+                      <div class="row">
+                        <div class="col-12 col-md-6 form-group">
+                          <input class="form-control" id="contact-name" type="text" name="name" placeholder="Name"
+                            required="">
+                        </div>
+                        <div class="col-12 col-md-6 form-group">
+                          <input class="form-control" id="contact-email" type="email" name="email" placeholder="Email"
+                            required="">
+                        </div>
+                        <div class="col-12 form-group">
+                          <input class="form-control" id="contact-subject" type="text" name="subject"
+                            placeholder="Subject" required="">
+                        </div>
+                        <div class="col-12 form-group form-message">
+                          <textarea class="form-control" id="contact-message" name="message" placeholder="Message"
+                            rows="5" required=""></textarea>
+                        </div>
+                        <div class="col-12 form-submit">
+                          <button class="btn button-main button-scheme" id="contact-submit" type="submit">Send
+                            Message</button>
+                          <p class="contact-feedback"></p>
+                        </div>
                       </div>
-                      <div class="col-12 col-md-6 form-group">
-                        <input class="form-control" id="contact-email" type="email" name="email" placeholder="Email"
-                          required="">
-                      </div>
-                      <div class="col-12 form-group">
-                        <input class="form-control" id="contact-subject" type="text" name="subject"
-                          placeholder="Subject" required="">
-                      </div>
-                      <div class="col-12 form-group form-message">
-                        <textarea class="form-control" id="contact-message" name="message" placeholder="Message"
-                          rows="5" required=""></textarea>
-                      </div>
-                      <div class="col-12 form-submit">
-                        <button class="btn button-main button-scheme" id="contact-submit" type="submit">Send
-                          Message</button>
-                        <p class="contact-feedback"></p>
-                      </div>
+                    </form>
+                  </div>
+                  <!-- Contact info-->
+                  <div class="col-12 col-lg-5">
+                    <div class="contact-info">
+                      <h4 class="content-title">Contact Info</h4>
+                      <p class="info-description">Always available for freelance work if the right project comes along,
+                        Feel free to contact me!</p>
+                      <ul class="list-unstyled list-info">
+                        <li>
+                          <div class="media align-items-center">
+                            <span class="info-icon">
+                              <i class="icon ion-logo-ionic"></i>
+                            </span>
+                            <div class="media-body info-details">
+                              <h6 class="info-type">Name</h6>
+                              <span class="info-value">Shylesh Kumar</span>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="media align-items-center">
+                            <span class="info-icon">
+                              <i class="icon ion-md-map"></i>
+                            </span>
+                            <div class="media-body info-details">
+                              <h6 class="info-type">Location</h6>
+                              <span class="info-value">13 Ramakrishna Nagar, Villivakkam, Chennai, India.</span>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="media align-items-center">
+                            <span class="info-icon">
+                              <i class="icon ion-md-call"></i>
+                            </span>
+                            <div class="media-body info-details">
+                              <h6 class="info-type">Call Me</h6>
+                              <span class="info-value">
+                                <a href="tel:+441632967704">+91 8122327669</a>
+                              </span>
+                            </div>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="media align-items-center">
+                            <span class="info-icon">
+                              <i class="icon ion-md-send"></i>
+                            </span>
+                            <div class="media-body info-details">
+                              <h6 class="info-type">Email Me</h6>
+                              <span class="info-value">
+                                <a href="mailto:emma@example.com">shyleshkumar4012@gmail.com</a>
+                              </span>
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
                     </div>
-                  </form>
-                </div>
-                <!-- Contact info-->
-                <div class="col-12 col-lg-5">
-                  <div class="contact-info">
-                    <h4 class="content-title">Contact Info</h4>
-                    <p class="info-description">Always available for freelance work if the right project comes along,
-                      Feel free to contact me!</p>
-                    <ul class="list-unstyled list-info">
-                      <li>
-                        <div class="media align-items-center">
-                          <span class="info-icon">
-                            <i class="icon ion-logo-ionic"></i>
-                          </span>
-                          <div class="media-body info-details">
-                            <h6 class="info-type">Name</h6>
-                            <span class="info-value">Shylesh Kumar</span>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="media align-items-center">
-                          <span class="info-icon">
-                            <i class="icon ion-md-map"></i>
-                          </span>
-                          <div class="media-body info-details">
-                            <h6 class="info-type">Location</h6>
-                            <span class="info-value">13 Ramakrishna Nagar, Villivakkam, Chennai, India.</span>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="media align-items-center">
-                          <span class="info-icon">
-                            <i class="icon ion-md-call"></i>
-                          </span>
-                          <div class="media-body info-details">
-                            <h6 class="info-type">Call Me</h6>
-                            <span class="info-value">
-                              <a href="tel:+441632967704">+91 8122327669</a>
-                            </span>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <div class="media align-items-center">
-                          <span class="info-icon">
-                            <i class="icon ion-md-send"></i>
-                          </span>
-                          <div class="media-body info-details">
-                            <h6 class="info-type">Email Me</h6>
-                            <span class="info-value">
-                              <a href="mailto:emma@example.com">shyleshkumar4012@gmail.com</a>
-                            </span>
-                          </div>
-                        </div>
-                      </li>
-                    </ul>
                   </div>
                 </div>
               </div>
@@ -725,96 +1592,38 @@
         </div>
       </div>
     </div>
-  </div>
-  <!-- removeIf(customizerDist)-->
-  <div class="demo-tool">
-    <div class="tool-wrapper">
-      <span class="tool-toggler">
-        <i class="icon ion-md-settings"></i>
-      </span>
-      <div class="tool-box">
-        <ul class="list-inline single-block color-switcher">
-          <li class="list-inline-item" style="background-color: #2c31ff;" data-path="css/colors/main-blueviolet.css">
-          </li>
-          <li class="list-inline-item" style="background-color: #3460D1;" data-path="css/colors/main-nightskyblue.css">
-          </li>
-          <li class="list-inline-item" style="background-color: #EE3158;" data-path="css/colors/main-redpink.css"></li>
-          <li class="list-inline-item" style="background-color: #007bff;" data-path="css/colors/main-blue.css"></li>
-          <li class="list-inline-item" style="background-color: #17a2b8;" data-path="css/colors/main-cyan.css"></li>
-          <li class="list-inline-item" style="background-color: #3365b0;" data-path="css/colors/main-darkblue.css"></li>
-          <li class="list-inline-item" style="background-color: #a435b7;" data-path="css/colors/main-darkmagenta.css">
-          </li>
-          <li class="list-inline-item" style="background-color: #c93e70;" data-path="css/colors/main-darkpink.css"></li>
-          <li class="list-inline-item" style="background-color: #bf2a3d;" data-path="css/colors/main-darkred.css"></li>
-          <li class="list-inline-item" style="background-color: #28a745;" data-path="css/colors/main-green.css"></li>
-          <li class="list-inline-item" style="background-color: #6610f2;" data-path="css/colors/main-indigo.css"></li>
-          <li class="list-inline-item" style="background-color: #fd7e14;" data-path="css/colors/main-orange.css"></li>
-          <li class="list-inline-item" style="background-color: #e83e8c;" data-path="css/colors/main-pink.css"></li>
-          <li class="list-inline-item" style="background-color: #6f42c1;" data-path="css/colors/main-purple.css"></li>
-          <li class="list-inline-item" style="background-color: #dc3545;" data-path="css/colors/main-red.css"></li>
-          <li class="list-inline-item" style="background-color: #20c997;" data-path="css/colors/main-teal.css"></li>
-          <li class="list-inline-item" style="background-color: #333;" data-path="css/colors/main-dark.css"></li>
-          <li class="list-inline-item" style="background-color: #78b230;" data-path="css/colors/main-yellowgreen.css">
-          </li>
-          <li class="list-inline-item" style="background-color: #E16F7C;" data-path="css/colors/main-tangopink.css">
-          </li>
-          <li class="list-inline-item" style="background-color: #6F73D2;" data-path="css/colors/main-moodyblue.css">
-          </li>
-          <li class="list-inline-item" style="background-color: #664C43;" data-path="css/colors/main-brown.css"></li>
-          <li class="list-inline-item" style="background-color: #4770D9;" data-path="css/colors/main-royalblue.css">
-          </li>
-          <li class="list-inline-item" style="background-color: #ffb100;" data-path="css/colors/main-darkyellow.css">
-          </li>
-        </ul>
-        <div class="single-block buy-btn mb-0">
-
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- endremoveIf(customizerDist)-->
-  <!-- Scripts-->
-  <script>
-    w3.includeHTML();
-    $(document).ready(function () {
-      $(".filter-link").click(function () {
-        let value = $(this).attr('data-filter');
-        if (value == "all" || value == "*") $('.filter-item').show();
-        else {
-          $(".filter-item").not('.' + value).hide();
-          $('.filter-item').filter('.' + value).show();
-        }
-        $(".filter-link").removeClass('tab-active');
-        $(this).addClass('tab-active');
+    <!-- Scripts (all deferred; execute in document order once parsing finishes, so
+       jQuery/Highcharts/p5 are always ready before the scripts that use them) -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        $(".filter-link").click(function () {
+          let value = $(this).attr('data-filter');
+          if (value == "all" || value == "*") $('.filter-item').show();
+          else {
+            $(".filter-item").not('.' + value).hide();
+            $('.filter-item').filter('.' + value).show();
+          }
+          $(".filter-link").removeClass('tab-active');
+          $(this).addClass('tab-active');
+        });
       });
-    });
-  </script>
-  <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-    crossorigin="anonymous"></script> -->
-  <script src="js/collapse.js"></script>
-  <!-- <script src="js/bootstrap.bundle.min.js"></script> -->
-  <script src="js/imagesloaded.pkgd.min.js"></script>
-  <script src="js/isotope.pkgd.min.js"></script>
-  <script src="js/animatedModal.js" defer></script>
-  <script src="js/tiny-slider.js"></script>
-  <script src="js/lity.min.js"></script>
-  <script src="js/simplebar.min.js"></script>
-  <script src="js/jquery.mb.YTPlayer.min.js" defer></script>
-  <script src="js/main.js"></script>
-  <script src="js/imagehover.js"></script>
-  <!-- Custom JS (Add your custom JS scripts to this file)-->
-  <!-- removeIf(customizerDist)-->
-  <script src="../customizer/main.js"></script>
-  <!-- endremoveIf(customizerDist)-->
-  <script src="js/custom.js"></script>
-  <!-- Include Highcharts timeline module and timeline chart -->
-  <script src="https://code.highcharts.com/modules/timeline.js"></script>
-  <script src="js/timeline-chart.js"></script>
-  <!-- Add your p5.js sketch file here -->
-  <script src="js/sketch4.js" defer></script>
-  <!-- 
-  <script src="js/sketch4.js"></script> -->
+    </script>
+    <script src="js/collapse.js" defer></script>
+    <script src="js/imagesloaded.pkgd.min.js" defer></script>
+    <script src="js/isotope.pkgd.min.js" defer></script>
+    <script src="js/animatedModal.js" defer></script>
+    <script src="js/tiny-slider.js" defer></script>
+    <script src="js/lity.min.js" defer></script>
+    <script src="js/simplebar.min.js" defer></script>
+    <script src="js/main.js" defer></script>
+    <!-- Custom JS (Add your custom JS scripts to this file)-->
+    <script src="js/custom.js" defer></script>
+    <!-- Include Highcharts timeline module and timeline chart -->
+    <script src="https://code.highcharts.com/modules/timeline.js" defer></script>
+    <script src="js/timeline-chart.js" defer></script>
+    <!-- p5.js sketch for the hero background -->
+    <script src="js/sketch4.js" defer></script>
+    <script src="js/cursor.js" defer></script>
 </body>
 
 </html>
