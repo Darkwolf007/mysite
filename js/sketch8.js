@@ -15,6 +15,8 @@ let pindex = 0;
 let pens = [];
 let div = 39;
 let amp = 50;
+let steps = 30; // segments drawn per pen per frame — fast-forwards the growth
+let speed = 1; // multiplies steps; clicking boosts this
 
 function setup() {
   const canvas = createCanvas(windowWidth, windowHeight);
@@ -39,6 +41,11 @@ function draw() {
   if (frameCount % 90 === 0) {
     spawnPen(random(width), random(height));
   }
+
+  // A pen follows the cursor continuously, mouse held or not.
+  if (frameCount % 4 === 0 && (mouseX !== pmouseX || mouseY !== pmouseY)) {
+    spawnPen(mouseX, mouseY);
+  }
 }
 
 function windowResized() {
@@ -50,7 +57,12 @@ function mouseDragged() {
 }
 
 function mousePressed() {
+  speed = 3; // held down = fast-forwarded further, until release
   spawnPen(mouseX, mouseY);
+}
+
+function mouseReleased() {
+  speed = 1;
 }
 
 function spawnPen(x, y) {
@@ -85,7 +97,8 @@ class Pen {
   show() {
     this.counter += 10;
     if (this.counter > 150) this.alive = false;
-    for (let i = 0; i < 20; i++) {
+    const n = floor(steps * speed);
+    for (let i = 0; i < n; i++) {
       this.pos.x += (0.5 - noise(this.pos.y / div)) * amp;
       this.pos.y += (0.5 - noise(this.pos.x / div)) * amp;
       stroke(this.col);
