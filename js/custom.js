@@ -82,8 +82,9 @@ function labelPortfolioCategories($grid) {
     });
 }
 
-$('a.nav-link[href="#portfolio"]').one("click", function () {
+function initPortfolioGrid() {
     const $grid = $("#portfolio .portfolio-section .portfolio-grid");
+    if (!$grid.length || $grid.hasClass("bento-grid")) return;
     activateDeferredMedia($grid);
     labelPortfolioCategories($grid);
     $grid.imagesLoaded(function () {
@@ -91,11 +92,25 @@ $('a.nav-link[href="#portfolio"]').one("click", function () {
         $grid.addClass("bento-grid");
         shuffleBento($grid);
     });
+}
+
+$('a.nav-link[href="#portfolio"]').one("click", function () {
+    initPortfolioGrid();
 });
 
 $('a.nav-link[href="#portfolio"]').on("click", function () {
     const $grid = $("#portfolio .portfolio-section .portfolio-grid");
     if ($grid.hasClass("bento-grid")) shuffleBento($grid);
+});
+
+function initSkillGraph() {
+    if (typeof window.initSkillGraph === "function") {
+        window.initSkillGraph();
+    }
+}
+
+$('a.nav-link[href="#resume"]').one("click", function () {
+    initSkillGraph();
 });
 
 $('a.nav-link[href="#blog"]').one("click", function () {
@@ -187,6 +202,19 @@ window.addEventListener("load", function () {
         let raf = null;
 
         function step(time) {
+            // js/timeline-scroll.js sets this while it's intercepting wheel
+            // events for the horizontal milestone timeline. Without this
+            // check, this loop — already in flight from wheel ticks just
+            // before that interception started — keeps easing scrollTop
+            // toward its last target for several more frames on its own,
+            // fighting the timeline's "freeze vertical scroll" effect even
+            // though no new wheel events are reaching this handler anymore.
+            if (window.__timelineScrollLock) {
+                current = target = el.scrollTop;
+                raf = null;
+                lastTime = 0;
+                return;
+            }
             const dt = lastTime ? Math.min((time - lastTime) / 1000, 0.1) : 0;
             lastTime = time;
             const factor = 1 - Math.exp(-14 * dt);
@@ -203,6 +231,7 @@ window.addEventListener("load", function () {
         }
 
         el.addEventListener("wheel", function (e) {
+            if (window.__timelineScrollLock) return;
             e.preventDefault();
             const max = el.scrollHeight - el.clientHeight;
             target = Math.min(max, Math.max(0, target + e.deltaY));

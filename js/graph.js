@@ -276,7 +276,10 @@
 
   function init() {
     const container = document.getElementById("graphskill");
+    const panel = document.getElementById("resume");
     if (!container || typeof d3 === "undefined") return;
+    if (!panel || !panel.classList.contains("resume-on")) return;
+    if (container.dataset.graphReady === "true") return;
 
     let lastWidth = 0;
     let lastHeight = 0;
@@ -293,11 +296,26 @@
     });
 
     observer.observe(container);
+    container.dataset.graphReady = "true";
   }
 
+  window.initSkillGraph = init;
+
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", init);
+    document.addEventListener("DOMContentLoaded", function () {
+      const resumeLink = document.querySelector('a.nav-link[href="#resume"]');
+      if (resumeLink) {
+        resumeLink.addEventListener("click", function () {
+          requestAnimationFrame(init);
+        }, { once: true });
+      }
+    });
   } else {
-    init();
+    const resumeLink = document.querySelector('a.nav-link[href="#resume"]');
+    if (resumeLink) {
+      resumeLink.addEventListener("click", function () {
+        requestAnimationFrame(init);
+      }, { once: true });
+    }
   }
 })();

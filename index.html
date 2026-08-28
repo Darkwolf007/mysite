@@ -265,19 +265,139 @@
                 </div>
               </div>
             </div>
-            <!-- <div id="timeline_container"></div>
-              <script src="https://code.highcharts.com/highcharts.js"></script>
-              <script src="https://code.highcharts.com/modules/timeline.src.js"></script>
-              <script src="js/timeline.js"></script> -->
-            <!-- Resume section-->
-            <div class="resume-section single-section">
+            <!-- Milestone timeline — replaces the old Highcharts timeline_chart and the
+                 two-column Education/Experience lists (kept below, commented out).
+                 Horizontal ruler: a tick per milestone year, laid out left-to-right, years
+                 with nothing new skipped entirely (not shown as empty gaps).
+                 js/timeline-scroll.js intercepts wheel scroll while this section is docked
+                 at the top of the panel: further downward scroll drives .timeline-track
+                 sideways instead of scrolling the page, until the last year (Present) is
+                 reached, at which point vertical scroll resumes normally (and symmetrically
+                 in reverse on the way back up to the first year). -->
+            <div class="timeline-section single-section">
               <div class="row">
                 <div class="col-12">
-                  <div id="timeline_chart" style="min-width:310px; width:100%; height:500px; margin-bottom:30px"></div>
+                  <div class="timeline-viewport">
+                    <div class="timeline-track">
+                      <div class="timeline-year">
+                        <span class="timeline-year-label">2014</span>
+                        <span class="timeline-tick"></span>
+                        <div class="timeline-year-milestones">
+                          <div class="timeline-item">
+                            <h5 class="timeline-item-title">School of Planning and Architecture Vijayawada</h5>
+                            <span class="timeline-item-details">Bachelors in Architecture · 2014 – 2019</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="timeline-year">
+                        <span class="timeline-year-label">2017</span>
+                        <span class="timeline-tick"></span>
+                        <div class="timeline-year-milestones">
+                          <div class="timeline-item">
+                            <h5 class="timeline-item-title">Cadence Architects</h5>
+                            <span class="timeline-item-details">Intern Architect · 2017 – 2018</span>
+                          </div>
+                          <div class="timeline-item">
+                            <h5 class="timeline-item-title">Digital IntuitionX</h5>
+                            <span class="timeline-item-details">Assistant Tutor · 2017 – 2019</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="timeline-year">
+                        <span class="timeline-year-label">2018</span>
+                        <span class="timeline-tick"></span>
+                        <div class="timeline-year-milestones">
+                          <div class="timeline-item">
+                            <h5 class="timeline-item-title">Sri Design Lab</h5>
+                            <span class="timeline-item-details">Research Assistant · 2018 – 2021</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="timeline-year">
+                        <span class="timeline-year-label">2019</span>
+                        <span class="timeline-tick"></span>
+                        <div class="timeline-year-milestones">
+                          <div class="timeline-item">
+                            <h5 class="timeline-item-title">IIT Hyderabad</h5>
+                            <span class="timeline-item-details">Junior Researcher · 2019 – 2020</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="timeline-year">
+                        <span class="timeline-year-label">2020</span>
+                        <span class="timeline-tick"></span>
+                        <div class="timeline-year-milestones">
+                          <div class="timeline-item">
+                            <h5 class="timeline-item-title">Sustecture</h5>
+                            <span class="timeline-item-details">Design Architect · 2020 – 2022</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="timeline-year">
+                        <span class="timeline-year-label">2021</span>
+                        <span class="timeline-tick"></span>
+                        <div class="timeline-year-milestones">
+                          <div class="timeline-item">
+                            <h5 class="timeline-item-title">xBuild</h5>
+                            <span class="timeline-item-details">Co-Founder · 2021 – Present</span>
+                          </div>
+                          <div class="timeline-item">
+                            <h5 class="timeline-item-title">GUVI IIT Madras</h5>
+                            <span class="timeline-item-details">Deep Learning · 2021 – 2022</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="timeline-year">
+                        <span class="timeline-year-label">2022</span>
+                        <span class="timeline-tick"></span>
+                        <div class="timeline-year-milestones">
+                          <div class="timeline-item">
+                            <h5 class="timeline-item-title">Universitat Politècnica de Catalunya</h5>
+                            <span class="timeline-item-details">Masters in Parametric Design · 2022 – 2023</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="timeline-year">
+                        <span class="timeline-year-label">2024</span>
+                        <span class="timeline-tick"></span>
+                        <div class="timeline-year-milestones">
+                          <div class="timeline-item">
+                            <h5 class="timeline-item-title">IIT Ropar</h5>
+                            <span class="timeline-item-details">Major in Artificial Intelligence · 2024 – 2025</span>
+                          </div>
+                          <div class="timeline-item">
+                            <h5 class="timeline-item-title">Atkins Realis</h5>
+                            <span class="timeline-item-details">Automation Engineer · 2024 – Present</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="timeline-year timeline-year-last">
+                        <span class="timeline-year-label">2026</span>
+                        <span class="timeline-tick"></span>
+                        <div class="timeline-year-milestones">
+                          <div class="timeline-item">
+                            <h5 class="timeline-item-title">Present</h5>
+                            <span class="timeline-item-details">Continuing at Atkins Realis and xBuild</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Not visible content — a scroll buffer. The timeline can only dock at
+                       the top of the panel (where js/timeline-scroll.js's wheel-jacking takes
+                       over) if there's enough trailing scroll room to bring it there; since
+                       nothing follows the timeline otherwise, the script sizes this to exactly
+                       what's needed so docking is always reachable. -->
+                  <div class="timeline-spacer"></div>
                 </div>
               </div>
+            </div>
+            <script src="js/timeline-scroll.js" defer></script>
+            <!-- Resume section — old two-column Education/Experience lists, superseded
+                 by the timeline above. Commented out, not deleted.
+            <div class="resume-section single-section">
               <div class="row">
-                <!-- Education part-->
+                <!- - Education part- ->
                 <div class="col-12 col-md-6">
                   <div class="col-block education">
                     <h3 class="col-title">Education</h3>
@@ -328,7 +448,7 @@
                 </div>
 
 
-                <!-- Experience part-->
+                <!- - Experience part- ->
                 <div class="col-12 col-md-6">
                   <div class="col-block experience">
                     <h3 class="col-title">Experience</h3>
@@ -437,10 +557,11 @@
                     </div>
                   </div>
                 </div>
-                <!-- Education part-->
+                <!- - Education part- ->
 
               </div>
             </div>
+            -->
           </div>
         </div>
       </div>
@@ -479,7 +600,6 @@
                     <!-- <h2 class="section-title">My Skills</h2> -->
                   </div>
                   <div id="graphskill"></div>
-                  <script src="js/graph.js" defer></script>
                 </div>
               </div>
             </div>

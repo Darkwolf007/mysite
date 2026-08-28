@@ -785,6 +785,143 @@ body:has(.about-on, .resume-on, .portfolio-on, .blog-on) .navbar {
     display: none;
 }
 
+/* --------------------------- Milestone timeline --------------------------
+   Horizontal ruler: a tick per milestone year, laid out left-to-right.
+   js/timeline-scroll.js intercepts wheel scroll once the panel has
+   scrolled as far down as it naturally goes (this section plus the small
+   .timeline-spacer below it) — further downward scroll drives .timeline-track
+   sideways instead of scrolling the page (vertical scroll stops, horizontal
+   reveal continues) until the last year is reached; symmetric in reverse
+   scrolling back up. Pulled up close under the photo/bio block above (see
+   the tightened margin-bottom on .info-section) rather than sitting behind
+   the usual generous section gap.
+
+   Base state (no JS, or the mobile breakpoint where the script disables
+   itself) is a plain native horizontal scroll strip — overflow-x:auto — so
+   the content is always reachable even without the scroll-jacked effect. */
+#about .info-section.single-section:not(:last-child) {
+    margin-bottom: 32px;
+}
+
+/* .lightbox-content's own generic margin (main.css) reserves 70px below
+   every panel's last section — more than needed here now that the
+   timeline is the last thing in the panel and already has its own small
+   .timeline-spacer for the "stop 6px past it" scroll behavior. */
+#about .lightbox-content {
+    margin-bottom: 20px;
+}
+
+#about .timeline-section .timeline-viewport {
+    -webkit-overflow-scrolling: touch;
+    align-items: center;
+    display: flex;
+    height: 220px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+#about .timeline-section .timeline-viewport.is-scroll-driven {
+    overflow: hidden;
+}
+
+#about .timeline-section .timeline-spacer {
+    height: 6px;
+}
+
+#about .timeline-section .timeline-track {
+    display: flex;
+    min-width: max-content;
+    padding-right: 80px;
+    position: relative;
+    width: max-content;
+    will-change: transform;
+}
+
+#about .timeline-section .timeline-track:before {
+    background-color: var(--border);
+    content: '';
+    height: 1px;
+    left: 0;
+    position: absolute;
+    right: 80px;
+    top: 60px;
+    z-index: 0;
+}
+
+#about .timeline-section .timeline-year {
+    align-items: flex-start;
+    display: flex;
+    flex: 0 0 300px;
+    flex-direction: column;
+    padding: 0 22px;
+    position: relative;
+}
+
+#about .timeline-section .timeline-year-last {
+    flex-basis: 360px;
+    padding-right: 48px;
+}
+
+#about .timeline-section .timeline-year-label {
+    color: var(--text-primary);
+    font-size: 28px;
+    font-weight: 800;
+    height: 34px;
+    letter-spacing: -.5px;
+    line-height: 34px;
+    margin-bottom: 16px;
+}
+
+#about .timeline-section .timeline-tick {
+    background-color: var(--node-grey, #86868c);
+    height: 20px;
+    margin-bottom: 16px;
+    position: relative;
+    width: 2px;
+    z-index: 1;
+}
+
+#about .timeline-section .timeline-year-milestones {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#about .timeline-section .timeline-item-title {
+    color: var(--text-primary);
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 2px;
+}
+
+#about .timeline-section .timeline-item-details {
+    color: var(--text-faint);
+    font-size: 12px;
+}
+
+@media (max-width: 991.98px) {
+    #about .timeline-section .timeline-year {
+        flex-basis: 250px;
+        padding: 0 18px;
+    }
+
+    #about .timeline-section .timeline-year-label {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    #about .timeline-section .timeline-year {
+        flex-basis: 220px;
+        padding: 0 14px;
+    }
+
+    #about .timeline-section .timeline-year-label {
+        font-size: 22px;
+    }
+}
+
 /* ---------------------------- Other cards -------------------------------- */
 #about .services-section .single-service,
 #about .testimonials-section .single-review,
@@ -830,6 +967,12 @@ body:has(.about-on, .resume-on, .portfolio-on, .blog-on) .navbar {
     padding-right: 40px;
 }
 
+#portfolio .portfolio-section .portfolio-grid {
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+}
+
 #portfolio .portfolio-section .portfolio-grid.bento-grid {
     display: grid !important;
     gap: 18px;
@@ -838,6 +981,9 @@ body:has(.about-on, .resume-on, .portfolio-on, .blog-on) .navbar {
     grid-template-columns: repeat(6, 1fr);
     margin-left: 0;
     margin-right: 0;
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
 }
 
 #portfolio .portfolio-section .portfolio-grid.bento-grid .single-item {
