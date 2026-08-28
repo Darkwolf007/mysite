@@ -478,6 +478,26 @@ body:has(.about-on, .resume-on, .portfolio-on, .blog-on) .navbar {
     box-shadow: 0 20px 50px rgba(0, 0, 0, .45);
 }
 
+/* Desktop two-column layout only (below 992px the photo switches to a
+   fixed circular avatar via main.css — untouched here). The bio column
+   now runs several paragraphs plus buttons and the socials line, so the
+   row's own HTML "align-items-center" (which centers each column at its
+   own intrinsic height) leaves the photo short with empty space above
+   and below it. Stretching the row and filling the photo to its column's
+   full height instead makes it span exactly from the headline to the
+   socials line, cropping via object-fit instead of distorting. */
+@media (min-width: 992px) {
+    #about .info-section>.row {
+        align-items: stretch;
+    }
+
+    #about .info-section .info-img img {
+        height: 100%;
+        object-fit: cover;
+        width: 100%;
+    }
+}
+
 #about .info-section .info-content .content-title {
     font-size: 30px;
     font-weight: 800;
@@ -486,35 +506,19 @@ body:has(.about-on, .resume-on, .portfolio-on, .blog-on) .navbar {
 
 #about .info-section .info-content .content-description p {
     color: var(--text-secondary);
-    font-size: 17px;
-    line-height: 1.7;
+    font-size: 19px;
+    line-height: 1.65;
+    margin-bottom: 20px;
 }
 
 #about .info-section .info-content .content-description p:last-child {
     border-bottom: none;
+    margin-bottom: 0;
 }
 
-#about .info-section .info-content .content-info {
-    margin-top: 26px;
-}
-
-#about .info-section .info-content .content-info .single-info {
-    margin-bottom: 16px;
-}
-
-#about .info-section .info-content .content-info .single-info>span {
-    color: var(--text-faint);
-    display: block;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    margin-bottom: 3px;
-    text-transform: uppercase;
-}
-
-#about .info-section .info-content .content-info .single-info>p {
+#about .info-section .info-content .content-description strong {
     color: var(--text-primary);
-    font-weight: 600;
+    font-weight: 700;
 }
 
 .content-download.button-main.button-scheme {
@@ -533,23 +537,43 @@ body:has(.about-on, .resume-on, .portfolio-on, .blog-on) .navbar {
     border-color: var(--border) !important;
 }
 
-#about .info-section .info-content .content-follow:before {
-    display: none;
+/* Plain-text link list (no icons), replacing the old icon row — echoes
+   the minimal, typography-only "socials" line on jessievan.framer.website. */
+#about .info-section .info-content .content-social {
+    align-items: baseline;
+    border-top: 1px solid var(--border);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 22px;
+    margin-top: 32px;
+    padding-top: 26px;
 }
 
-#about .info-section .info-content .content-follow li a {
-    align-items: center;
-    background-color: rgba(255, 255, 255, .06);
-    border-radius: 50%;
+#about .info-section .info-content .content-social-label {
+    color: var(--text-faint);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+#about .info-section .info-content .content-social-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 22px;
+    margin-bottom: 0;
+}
+
+#about .info-section .info-content .content-social-list a {
     color: var(--text-secondary);
-    display: inline-flex;
-    height: 38px;
-    justify-content: center;
-    width: 38px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color .2s ease;
 }
 
-#about .info-section .info-content .content-follow li a:hover {
-    background-color: rgba(0, 153, 255, .18);
+#about .info-section .info-content .content-social-list a:hover,
+#about .info-section .info-content .content-social-list a:focus {
     color: var(--accent);
 }
 
