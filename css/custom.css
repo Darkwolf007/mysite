@@ -33,6 +33,7 @@
     --text-faint: #7c786f;
     --accent: #0099ff;
     --border: #333338;
+    --node-grey: #86868c;
 }
 
 body {
@@ -656,6 +657,7 @@ body:has(.about-on, .resume-on, .portfolio-on, .blog-on) .navbar {
 }
 
 #graphskill .graph-link {
+    opacity: .55;
     stroke: var(--border);
     stroke-width: 1px;
     transition: opacity .2s ease;
@@ -674,16 +676,18 @@ body:has(.about-on, .resume-on, .portfolio-on, .blog-on) .navbar {
     outline: none;
 }
 
-#graphskill .graph-node circle {
+#graphskill .graph-node-mark {
     stroke-width: 1.5px;
     transition: filter .2s ease, opacity .2s ease;
 }
 
-#graphskill .graph-node-category circle {
-    stroke: rgba(0, 0, 0, .3);
+#graphskill .graph-node-category .graph-node-mark {
+    fill: var(--text-primary);
+    stroke: var(--border);
 }
 
-#graphskill .graph-node-tool circle {
+#graphskill .graph-node-tool .graph-node-mark {
+    fill: var(--node-grey);
     stroke: var(--text-faint);
 }
 
@@ -691,8 +695,8 @@ body:has(.about-on, .resume-on, .portfolio-on, .blog-on) .navbar {
     opacity: .18;
 }
 
-#graphskill .graph-node:hover circle,
-#graphskill .graph-node:focus circle {
+#graphskill .graph-node:hover .graph-node-mark,
+#graphskill .graph-node:focus .graph-node-mark {
     filter: brightness(1.25);
 }
 

@@ -23,18 +23,52 @@
    of letting it settle to a stop, so the layout keeps drifting gently —
    a living diagram rather than a frozen one. */
 (function () {
+  // Category (main) nodes carry no color — they're told apart by shape
+  // instead, drawn with d3.symbol below. Tool nodes are all a uniform
+  // mid-grey circle (see nodeMark/CSS), so shape is the only channel
+  // distinguishing one category from another.
   const categories = [
-    { id: "Complex Modelling", color: "#f2617a", tools: ["Rhino3D", "Grasshopper3D", "Blender3D", "Zbrush", "Sketchup", "CloudCompare", "Dynamo", "Python", "C#", ".NET", "C++"] },
-    { id: "Software Dev", color: "#6c8cff", tools: ["Python", "C#", ".NET", "C++", "Grasshopper3D", "Blender3D", "Revit"] },
-    { id: "Interoperability", color: "#46c2b0", tools: ["ArchiCad", "Revit", "Grasshopper3D", "Blender3D", "QGis", "Rhino.inside", "Speckle", "IFCjs"] },
-    { id: "Animation VFX", color: "#a78bfa", tools: ["Houdini", "Blender3D", "3dsMax", "Adobe Creative Suite", "ProcessingJS", "P5js", "TouchDesigner", "VVVV"] },
-    { id: "Fabrication", color: "#ff9f43", tools: ["CAM/CNC", "Gcode", "3D Printing", "VR", "AR", "IOT", "XR", "Grasshopper3D"] },
-    { id: "Immersive", color: "#ffd166", tools: ["Unity3D", "Armoury3D", "Unreal", "Igloo", "ThreeJS", "BabylonJS", "C++", "IFCjs"] },
-    { id: "Web Dev", color: "#4fd1c5", tools: ["HTML/CSS", "ThreeJS", "Unity3D", "BabylonJS", "Python", "Unreal", "ProcessingJS", "P5js", "IFCjs"] },
-    { id: "Creative Coding", color: "#c77dff", tools: ["ProcessingJS", "P5js", "TouchDesigner", "VVVV"] },
-    { id: "Simulation", color: "#4ea1ff", tools: ["Grasshopper3D", "DesignBuilder", "Unity3D", "Unreal", "Houdini", "Blender3D"] },
-    { id: "Data Capture", color: "#ff6b9d", tools: ["Reality Capture", "CloudCompare", "VR", "AR", "IOT", "XR"] },
+    { id: "Complex Modelling", shape: "circle", tools: ["Rhino3D", "Grasshopper3D", "Blender3D", "Zbrush", "Sketchup", "CloudCompare", "Dynamo", "Python", "C#", ".NET", "C++"] },
+    { id: "Software Dev", shape: "square", tools: ["Python", "C#", ".NET", "C++", "Grasshopper3D", "Blender3D", "Revit"] },
+    { id: "Interoperability", shape: "triangle", tools: ["ArchiCad", "Revit", "Grasshopper3D", "Blender3D", "QGis", "Rhino.inside", "Speckle", "IFCjs"] },
+    { id: "Animation VFX", shape: "diamond", tools: ["Houdini", "Blender3D", "3dsMax", "Adobe Creative Suite", "ProcessingJS", "P5js", "TouchDesigner", "VVVV"] },
+    { id: "Fabrication", shape: "star", tools: ["CAM/CNC", "Gcode", "3D Printing", "VR", "AR", "IOT", "XR", "Grasshopper3D"] },
+    { id: "Immersive", shape: "cross", tools: ["Unity3D", "Armoury3D", "Unreal", "Igloo", "ThreeJS", "BabylonJS", "C++", "IFCjs"] },
+    { id: "Web Dev", shape: "wye", tools: ["HTML/CSS", "ThreeJS", "Unity3D", "BabylonJS", "Python", "Unreal", "ProcessingJS", "P5js", "IFCjs"] },
+    { id: "Creative Coding", shape: "square2", tools: ["ProcessingJS", "P5js", "TouchDesigner", "VVVV"] },
+    { id: "Simulation", shape: "triangle2", tools: ["Grasshopper3D", "DesignBuilder", "Unity3D", "Unreal", "Houdini", "Blender3D"] },
+    { id: "Data Capture", shape: "diamond2", tools: ["Reality Capture", "CloudCompare", "VR", "AR", "IOT", "XR"] },
   ];
+
+  // d3.symbol's `size` is the shape's area in square pixels, but equal
+  // areas don't read as equal-sized across shapes (a star's points reach
+  // much further from center than a square's corners do for the same
+  // area) — these factors correct for that so every category shape's
+  // *outer reach* comes out close to nodeRadius(d), matched by eye
+  // against a plain circle rather than by exact geometry. Kept small and
+  // close together on purpose: these are meant to read as minimal glyphs
+  // next to the grey tool circles, not as oversized icons. (Only the
+  // solid, fillable symbol types are used — the thin stroke-oriented
+  // ones like plus/x/asterisk collapse into an near-invisible sliver at
+  // this size.)
+  const SYMBOL_TYPES = {
+    circle: [d3.symbolCircle, 1],
+    square: [d3.symbolSquare, 0.62],
+    triangle: [d3.symbolTriangle, 0.5],
+    diamond: [d3.symbolDiamond, 0.62],
+    star: [d3.symbolStar, 0.5],
+    cross: [d3.symbolCross, 0.6],
+    wye: [d3.symbolWye, 0.55],
+    square2: [d3.symbolSquare2, 0.55],
+    triangle2: [d3.symbolTriangle2, 0.5],
+    diamond2: [d3.symbolDiamond2, 0.5],
+  };
+
+  function categorySymbolPath(d) {
+    const [type, scale] = SYMBOL_TYPES[d.shape] || SYMBOL_TYPES.circle;
+    const r = nodeRadius(d);
+    return d3.symbol().type(type).size(Math.PI * r * r * scale)();
+  }
 
   const MOBILE_WIDTH = 767.98;
   const IDLE_ALPHA = 0.025;
@@ -53,7 +87,7 @@
   const TOP_EXCLUSION_RATIO_DESKTOP = 0.24;
 
   function buildFullGraph() {
-    const categoryNodes = categories.map((c) => ({ id: c.id, type: "category", color: c.color, toolCount: c.tools.length }));
+    const categoryNodes = categories.map((c) => ({ id: c.id, type: "category", shape: c.shape, toolCount: c.tools.length }));
 
     const toolUses = new Map();
     categories.forEach((c) => c.tools.forEach((t) => toolUses.set(t, (toolUses.get(t) || 0) + 1)));
@@ -66,7 +100,7 @@
   }
 
   function buildCollapsedGraph() {
-    const nodes = categories.map((c) => ({ id: c.id, type: "category", color: c.color, toolCount: c.tools.length }));
+    const nodes = categories.map((c) => ({ id: c.id, type: "category", shape: c.shape, toolCount: c.tools.length }));
 
     const links = [];
     for (let i = 0; i < categories.length; i++) {
@@ -84,10 +118,6 @@
   function nodeRadius(d) {
     if (d.type === "category") return 18 + Math.sqrt(d.toolCount) * 4.2;
     return 10 + Math.min(d.uses - 1, 3) * 3;
-  }
-
-  function nodeFill(d) {
-    return d.type === "category" ? d.color : "var(--bg-surface)";
   }
 
   function clamp(value, min, max) {
@@ -141,9 +171,22 @@
 
     nodeSel.append("title").text((d) => d.id);
 
-    nodeSel.append("circle")
-      .attr("r", nodeRadius)
-      .attr("fill", nodeFill);
+    // Category nodes are drawn as a d3.symbol shape (see categorySymbolPath);
+    // tool nodes stay plain circles. Both share the "graph-node-mark" class
+    // so CSS can give them a uniform stroke/transition without caring which
+    // element type it is.
+    nodeSel.each(function (d) {
+      const el = d3.select(this);
+      if (d.type === "category") {
+        el.append("path")
+          .attr("class", "graph-node-mark")
+          .attr("d", categorySymbolPath);
+      } else {
+        el.append("circle")
+          .attr("class", "graph-node-mark")
+          .attr("r", nodeRadius);
+      }
+    });
 
     nodeSel.append("text")
       .attr("dy", (d) => nodeRadius(d) + 13)
