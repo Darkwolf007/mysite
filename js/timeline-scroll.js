@@ -67,14 +67,15 @@
         disable();
         return;
       }
-      var travel = track.scrollWidth - width;
+      var endPadding = Math.min(220, width * 0.18);
+      var travel = track.scrollWidth - width + endPadding;
       if (travel <= 0) {
         disable();
         return;
       }
       active = true;
       distance = travel;
-      progress = clamp(progress, 0, 1);
+      progress = 0;
       viewport.classList.add("is-scroll-driven");
       applyTransform();
     }
@@ -99,12 +100,6 @@
         if (e.deltaY > 0 && progress >= 1) return;
         if (e.deltaY < 0 && progress <= 0) return;
         engaged = true;
-        // custom.js's own eased wheel-scroll handler is bound to this same
-        // element for its "smooth scroll everywhere" behavior; its easing
-        // loop keeps nudging scrollTop for several frames on its own once
-        // started, independent of new wheel events. This flag (checked by
-        // that loop) pauses it for as long as this stays engaged, and
-        // stopping propagation below keeps it from reacting to new ticks.
         window.__timelineScrollLock = true;
       }
 
@@ -114,6 +109,40 @@
       applyTransform();
 
       if ((e.deltaY > 0 && progress >= 1) || (e.deltaY < 0 && progress <= 0)) {
+        engaged = false;
+        window.__timelineScrollLock = false;
+      }
+    }
+
+    var touchStartY = 0;
+    var touchLastY = 0;
+
+    function onTouchStart(e) {
+      if (!active || !e.touches || !e.touches.length) return;
+      touchLastY = touchStartY = e.touches[0].clientY;
+    }
+
+    function onTouchMove(e) {
+      if (!active || !e.touches || !e.touches.length) return;
+      if (!atBottom()) return;
+
+      var delta = e.touches[0].clientY - touchLastY;
+      if (Math.abs(delta) < 2) return;
+
+      e.preventDefault();
+      e.stopPropagation();
+      touchLastY = e.touches[0].clientY;
+      if (!engaged) {
+        if (delta > 0 && progress >= 1) return;
+        if (delta < 0 && progress <= 0) return;
+        engaged = true;
+        window.__timelineScrollLock = true;
+      }
+
+      progress = clamp(progress + (delta / Math.max(150, distance)) * 1.2, 0, 1);
+      applyTransform();
+
+      if ((delta > 0 && progress >= 1) || (delta < 0 && progress <= 0)) {
         engaged = false;
         window.__timelineScrollLock = false;
       }
@@ -152,6 +181,8 @@
     function attachListeners() {
       scrollEl = document.querySelector("#about.lightbox-wrapper .simplebar-content-wrapper");
       (scrollEl || window).addEventListener("wheel", onWheel, { passive: false, capture: true });
+      (scrollEl || window).addEventListener("touchstart", onTouchStart, { passive: true, capture: true });
+      (scrollEl || window).addEventListener("touchmove", onTouchMove, { passive: false, capture: true });
       if (scrollEl) scrollEl.addEventListener("scroll", onScroll, { passive: true });
     }
     if (document.readyState === "complete") attachListeners();
