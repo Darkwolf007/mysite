@@ -154,6 +154,20 @@ document.addEventListener("click", function (e) {
         PANEL_IDS.forEach(function (other) {
             if (other !== id) closePanel(other);
         });
+        // closePanel above just triggered the outgoing panel's
+        // beforeClose (animatedModal.js), which swaps #overlay-effect
+        // from "animate-up" to "animate-down". This click is about to
+        // keep bubbling to the target nav-link's own animatedModal
+        // handler, whose beforeOpen swaps it right back to "animate-up"
+        // for the incoming panel. Both swaps happen in this one
+        // synchronous event dispatch with no render in between, so the
+        // class list nets out unchanged and the browser never sees a
+        // style change to restart the wipe keyframes from — going
+        // panel-to-panel silently skips the transition that plays fine
+        // from Home, where there's only one swap. Reading offsetWidth
+        // forces a style flush right now, committing "animate-down" so
+        // the next swap to "animate-up" is a real, animatable change.
+        void document.getElementById("overlay-effect").offsetWidth;
     }
 }, true);
 
