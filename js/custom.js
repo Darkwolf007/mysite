@@ -16,7 +16,7 @@ $(".modal").on("shown.bs.modal", function (event) {
     if (el) el.style.display = "none";
 });
 
-$(".modal").on("hiden.bs.modal", function (event) {
+$(".modal").on("hidden.bs.modal", function (event) {
     let el = document.getElementsByClassName("close-btn")[0];
     if (el) el.style.display = "flex";
 });
