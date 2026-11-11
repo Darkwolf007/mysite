@@ -278,7 +278,7 @@
     const container = document.getElementById("graphskill");
     const panel = document.getElementById("resume");
     if (!container || typeof d3 === "undefined") return;
-    if (!panel || !panel.classList.contains("resume-on")) return;
+    if (!panel) return;
     if (container.dataset.graphReady === "true") return;
 
     let lastWidth = 0;
