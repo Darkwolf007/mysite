@@ -639,17 +639,17 @@
                 <!-- Filter nav-->
                 <div class="col-12">
                   <ul class="list-inline filter-control" role="group" aria-label="Filter Control">
-                    <li class="list-inline-item filter-link tab-active" data-filter="*">all</li>
-                    <li class="list-inline-item filter-link" data-filter="computation">computation</li>
-                    <li class="list-inline-item filter-link" data-filter="research">research</li>
-                    <li class="list-inline-item filter-link" data-filter="reality">vr/ar</li>
-                    <li class="list-inline-item filter-link" data-filter="archi">architecture</li>
-                    <li class="list-inline-item filter-link" data-filter="urban">urban</li>
-                    <li class="list-inline-item filter-link" data-filter="competition">competition</li>
-                    <li class="list-inline-item filter-link" data-filter="fabri">fabrication</li>
-                    <li class="list-inline-item filter-link" data-filter="creative">creative art</li>
-                    <li class="list-inline-item filter-link" data-filter="ai">ai</li>
-                    <li class="list-inline-item filter-link" data-filter="automation">automation</li>
+                    <li class="list-inline-item filter-link tab-active" data-filter="*" role="button" tabindex="0" aria-pressed="true">all</li>
+                    <li class="list-inline-item filter-link" data-filter="computation" role="button" tabindex="0" aria-pressed="false">computation</li>
+                    <li class="list-inline-item filter-link" data-filter="research" role="button" tabindex="0" aria-pressed="false">research</li>
+                    <li class="list-inline-item filter-link" data-filter="reality" role="button" tabindex="0" aria-pressed="false">vr/ar</li>
+                    <li class="list-inline-item filter-link" data-filter="archi" role="button" tabindex="0" aria-pressed="false">architecture</li>
+                    <li class="list-inline-item filter-link" data-filter="urban" role="button" tabindex="0" aria-pressed="false">urban</li>
+                    <li class="list-inline-item filter-link" data-filter="competition" role="button" tabindex="0" aria-pressed="false">competition</li>
+                    <li class="list-inline-item filter-link" data-filter="fabri" role="button" tabindex="0" aria-pressed="false">fabrication</li>
+                    <li class="list-inline-item filter-link" data-filter="creative" role="button" tabindex="0" aria-pressed="false">creative art</li>
+                    <li class="list-inline-item filter-link" data-filter="ai" role="button" tabindex="0" aria-pressed="false">ai</li>
+                    <li class="list-inline-item filter-link" data-filter="automation" role="button" tabindex="0" aria-pressed="false">automation</li>
                   </ul>
                 </div>
               </div>
@@ -1563,10 +1563,10 @@
                 <!-- Filter nav-->
                 <div class="col-12">
                   <ul class="list-inline filter-control" role="group" aria-label="Filter Control">
-                    <li class="list-inline-item filter-link tab-active" data-filter="*">all</li>
-                    <li class="list-inline-item filter-link" data-filter="papers">papers</li>
-                    <li class="list-inline-item filter-link" data-filter="awards">awards</li>
-                    <li class="list-inline-item filter-link" data-filter="articles">articles</li>
+                    <li class="list-inline-item filter-link tab-active" data-filter="*" role="button" tabindex="0" aria-pressed="true">all</li>
+                    <li class="list-inline-item filter-link" data-filter="papers" role="button" tabindex="0" aria-pressed="false">papers</li>
+                    <li class="list-inline-item filter-link" data-filter="awards" role="button" tabindex="0" aria-pressed="false">awards</li>
+                    <li class="list-inline-item filter-link" data-filter="articles" role="button" tabindex="0" aria-pressed="false">articles</li>
                   </ul>
                 </div>
               </div>
@@ -1862,6 +1862,12 @@
        jQuery/Highcharts/p5 are always ready before the scripts that use them) -->
     <script>
       document.addEventListener('DOMContentLoaded', function () {
+        $(".filter-link").on("keydown", function (event) {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            $(this).trigger("click");
+          }
+        });
         $(".filter-link").click(function () {
           let value = $(this).attr('data-filter');
           if (value == "all" || value == "*") $('.filter-item').show();
@@ -1869,8 +1875,9 @@
             $(".filter-item").not('.' + value).hide();
             $('.filter-item').filter('.' + value).show();
           }
-          $(".filter-link").removeClass('tab-active');
-          $(this).addClass('tab-active');
+          const $group = $(this).closest(".filter-control");
+          $group.find(".filter-link").removeClass("tab-active").attr("aria-pressed", "false");
+          $(this).addClass("tab-active").attr("aria-pressed", "true");
         });
       });
     </script>
